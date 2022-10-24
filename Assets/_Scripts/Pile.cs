@@ -1,24 +1,52 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Pile
 {
-    private List<Card> cards;
+    private List<PileCards> cards;
+
     public Pile()
     {
-
+        cards = new();
     }
 
-    public Card GetCard(int index)
+    public void AddCard(CardScriptableObject cardSO, int cardNumber)
     {
-        Card card = cards[index];
-        cards.RemoveAt(index);
-        return card;
+        cards.Add(new PileCards(cardSO, cardNumber));
+    }
+
+    public PileCards GetCard(int index)
+    {
+        return cards[index];
+    }
+
+    public void RemoveCard(int index)
+    {
+        cards[index].ChangeNumber(-1);
     }
 
     public void ShowAllCard()
     {
 
+    }
+}
+
+public struct PileCards
+{
+    public CardScriptableObject cardSO;
+    public int nb;
+
+    public PileCards(CardScriptableObject so, int n)
+    {
+        cardSO = so;
+        nb = n;
+    }
+
+    public void ChangeNumber(int nb)
+    {
+        this.nb += nb;
     }
 }

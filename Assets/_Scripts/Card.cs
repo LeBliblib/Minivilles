@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Card : MonoBehaviour
+public class Card
 {
     public int PlayerID;
 
@@ -29,8 +29,12 @@ public class Card : MonoBehaviour
         }
     }
 
-    public void UseCard()
+    public void UseCard(int diceRoll)
     {
-        cardEvent.Activate(new Player("Test")); //Game.instance.GetPlayer(PlayerID)
+        if (values.Color == CardColor.Green || values.Color == CardColor.Purple)
+            if (Game.instance.GetCurrentPlayerID() != PlayerID) return;
+
+        if(diceRoll >= values.minValue && diceRoll <= values.maxValue)
+            cardEvent.Activate(Game.instance.GetPlayer(PlayerID)); //Game.instance.GetPlayer(PlayerID)
     }
 }
