@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class CardEvent
 {
-    public abstract void Activate(/*Player player*/);
+    public abstract void Activate(Player player);
 }

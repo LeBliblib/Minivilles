@@ -6,7 +6,7 @@ public class Card : MonoBehaviour
 {
     public int PlayerID;
 
-    CardScriptableObject values;
+    public CardScriptableObject values;
 
     CardEvent cardEvent;
 
@@ -31,6 +31,6 @@ public class Card : MonoBehaviour
 
     public void UseCard()
     {
-        cardEvent.Activate();
+        cardEvent.Activate(new Player("Test")); //Game.instance.GetPlayer(PlayerID)
     }
 }

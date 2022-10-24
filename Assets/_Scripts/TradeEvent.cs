@@ -11,7 +11,7 @@ public class TradeEvent : CardEvent
         forbiddenType = _forbiddenType;
     }
 
-    public override void Activate()
+    public override void Activate(Player player)
     {
         throw new System.NotImplementedException();
     }

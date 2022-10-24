@@ -6,7 +6,7 @@ public class Player
 {
     public string name;
     public int coins;
-    public List<Card> cards= new List<Card>();
+    public List<Card> cards = new List<Card>();
 
     public Player(string name)
     {
