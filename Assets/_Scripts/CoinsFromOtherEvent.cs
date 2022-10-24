@@ -16,7 +16,7 @@ public class CoinsFromOtherEvent : CardEvent
         currentPlayer = _currentPlayer;
     }
 
-    public override void Activate()
+    public override void Activate(Player player)
     {
         throw new System.NotImplementedException();
     }

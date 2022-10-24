@@ -13,15 +13,17 @@ MonoBehaviour:
   m_Name: Card Test
   m_EditorClassIdentifier: 
   Color: 1
-  type: 0
+  BuildingType: 0
   Name: "Champ de bl\xE9"
   Desc: "Recevez une pi\xE8ce de la banque."
-  Cost: 0
-  EventType: 0
+  Cost: 1
+  minValue: 1
+  maxValue: 1
+  EventType: 2
   cfo_CoinsNumber: 0
   AllPlayers: 0
   CurrentPlayer: 0
-  cfb_CoinsNumber: 0
+  cfb_CoinsNumber: 1
   ForEachBuilding: 0
   ForEachType: 0
   ForbiddenType: 0
