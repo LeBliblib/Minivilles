@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Card", menuName = "ScriptableObjects/Card", order = 1)]
 public class CardScriptableObject : ScriptableObject
 {
+    public Sprite texture;
+
     public CardColor Color;
     public BuildingType BuildingType;
 
