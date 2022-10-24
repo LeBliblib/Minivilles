@@ -10,6 +10,7 @@ public class Game : MonoBehaviour
     private List<Dice> gameDice = new List<Dice>();
 
     public static Game instance;
+
     private void Awake()
     {
         if (instance == null)
@@ -17,6 +18,7 @@ public class Game : MonoBehaviour
         else
             Destroy(gameObject);
     }
+
     void Start()
     {
 
@@ -27,6 +29,7 @@ public class Game : MonoBehaviour
     {
 
     }
+
     #region Methode
     public void RollDice()
     {
