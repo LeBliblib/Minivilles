@@ -12,18 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07dc9230e01fb0e4ab04c4e88c06390f, type: 3}
   m_Name: Champs de ble
   m_EditorClassIdentifier: 
-  Color: 0
+  texture: {fileID: 0}
+  Color: 1
   BuildingType: 0
-  Name: 
-  Desc: 
-  Cost: 0
-  minValue: 0
-  maxValue: 0
-  EventType: 0
+  Name: "Champs de bl\xE9"
+  Desc: "Pendant le tour de n'importe quel joueur, recevez 1 pi\xE8ce de la banque"
+  Cost: 1
+  minValue: 1
+  maxValue: 1
+  EventType: 2
   cfo_CoinsNumber: 0
   AllPlayers: 0
   CurrentPlayer: 0
-  cfb_CoinsNumber: 0
+  cfb_CoinsNumber: 1
   ForEachBuilding: 0
   ForEachType: 0
   ForbiddenType: 0

@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: Ferme
   m_EditorClassIdentifier: 
   texture: {fileID: 0}
-  Color: 0
-  BuildingType: 0
-  Name: 
-  Desc: 
-  Cost: 0
-  minValue: 0
-  maxValue: 0
-  EventType: 0
+  Color: 1
+  BuildingType: 1
+  Name: Ferme
+  Desc: "Pendant le tour de n'importe quel joueur, recevez 1 pi\xE8ce de la banque"
+  Cost: 1
+  minValue: 2
+  maxValue: 2
+  EventType: 2
   cfo_CoinsNumber: 0
   AllPlayers: 0
   CurrentPlayer: 0
-  cfb_CoinsNumber: 0
+  cfb_CoinsNumber: 1
   ForEachBuilding: 0
   ForEachType: 0
   ForbiddenType: 0

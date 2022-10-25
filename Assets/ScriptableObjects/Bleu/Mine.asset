@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: Mine
   m_EditorClassIdentifier: 
   texture: {fileID: 0}
-  Color: 0
-  BuildingType: 0
-  Name: 
-  Desc: 
-  Cost: 0
-  minValue: 0
-  maxValue: 0
-  EventType: 0
+  Color: 1
+  BuildingType: 4
+  Name: Mine
+  Desc: "Pendant le tour de n'importe quel joueur, recevez 5 pi\xE8ces de la banque"
+  Cost: 6
+  minValue: 9
+  maxValue: 9
+  EventType: 2
   cfo_CoinsNumber: 0
   AllPlayers: 0
   CurrentPlayer: 0
-  cfb_CoinsNumber: 0
+  cfb_CoinsNumber: 5
   ForEachBuilding: 0
   ForEachType: 0
   ForbiddenType: 0

@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: Chaine de television
   m_EditorClassIdentifier: 
   texture: {fileID: 0}
-  Color: 0
-  BuildingType: 0
-  Name: 
-  Desc: 
-  Cost: 0
-  minValue: 0
-  maxValue: 0
-  EventType: 0
-  cfo_CoinsNumber: 0
+  Color: 3
+  BuildingType: 7
+  Name: "Cha\xEEne de t\xE9l\xE9vision"
+  Desc: "Pendant votre tour uniquement, recevez 5 pi\xE8ces du joueur de votre choix"
+  Cost: 7
+  minValue: 6
+  maxValue: 6
+  EventType: 1
+  cfo_CoinsNumber: 5
   AllPlayers: 0
   CurrentPlayer: 0
   cfb_CoinsNumber: 0

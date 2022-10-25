@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: Verger
   m_EditorClassIdentifier: 
   texture: {fileID: 0}
-  Color: 0
+  Color: 1
   BuildingType: 0
-  Name: 
-  Desc: 
-  Cost: 0
-  minValue: 0
-  maxValue: 0
-  EventType: 0
+  Name: Verger
+  Desc: "Pendant le tour de n'importe quel joueur, recevez 3 pi\xE8ces de la banque"
+  Cost: 3
+  minValue: 10
+  maxValue: 10
+  EventType: 2
   cfo_CoinsNumber: 0
   AllPlayers: 0
   CurrentPlayer: 0
-  cfb_CoinsNumber: 0
+  cfb_CoinsNumber: 3
   ForEachBuilding: 0
   ForEachType: 0
   ForbiddenType: 0

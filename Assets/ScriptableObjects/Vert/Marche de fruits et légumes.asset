@@ -14,17 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   texture: {fileID: 0}
   Color: 0
-  BuildingType: 0
-  Name: 
-  Desc: 
-  Cost: 0
-  minValue: 0
-  maxValue: 0
-  EventType: 0
+  BuildingType: 6
+  Name: "March\xE9 de fruits et l\xE9gumes"
+  Desc: "Pendant votre tour uniquement; recevez 2 pi\xE8ces de la banque pour chaque
+    \xE9tablissement de type Farm que vous poss\xE9dez"
+  Cost: 2
+  minValue: 11
+  maxValue: 12
+  EventType: 2
   cfo_CoinsNumber: 0
   AllPlayers: 0
   CurrentPlayer: 0
-  cfb_CoinsNumber: 0
-  ForEachBuilding: 0
+  cfb_CoinsNumber: 2
+  ForEachBuilding: 1
   ForEachType: 0
   ForbiddenType: 0

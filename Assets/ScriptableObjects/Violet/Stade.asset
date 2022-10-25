@@ -13,16 +13,17 @@ MonoBehaviour:
   m_Name: Stade
   m_EditorClassIdentifier: 
   texture: {fileID: 0}
-  Color: 0
-  BuildingType: 0
-  Name: 
-  Desc: 
-  Cost: 0
-  minValue: 0
-  maxValue: 0
-  EventType: 0
-  cfo_CoinsNumber: 0
-  AllPlayers: 0
+  Color: 3
+  BuildingType: 7
+  Name: Stade
+  Desc: "Pendant votre tour uniquement, recevez 2 pi\xE8ces de la part de chaque
+    autre joueur"
+  Cost: 6
+  minValue: 6
+  maxValue: 6
+  EventType: 1
+  cfo_CoinsNumber: 2
+  AllPlayers: 1
   CurrentPlayer: 0
   cfb_CoinsNumber: 0
   ForEachBuilding: 0

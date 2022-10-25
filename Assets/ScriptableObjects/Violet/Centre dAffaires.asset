@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: Centre dAffaires
   m_EditorClassIdentifier: 
   texture: {fileID: 0}
-  Color: 0
-  BuildingType: 0
-  Name: 
-  Desc: 
-  Cost: 0
-  minValue: 0
-  maxValue: 0
+  Color: 3
+  BuildingType: 7
+  Name: Centre d'affaires
+  Desc: "Pendant votre tour uniquement, vous pouvez \xE9changer avec le joueur de
+    votre choix un \xE9tablissement qui ne soit pas de type Tour"
+  Cost: 8
+  minValue: 6
+  maxValue: 6
   EventType: 0
   cfo_CoinsNumber: 0
   AllPlayers: 0
@@ -27,4 +28,4 @@ MonoBehaviour:
   cfb_CoinsNumber: 0
   ForEachBuilding: 0
   ForEachType: 0
-  ForbiddenType: 0
+  ForbiddenType: 7

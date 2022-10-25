@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   texture: {fileID: 0}
   Color: 0
-  BuildingType: 0
-  Name: 
-  Desc: 
-  Cost: 0
-  minValue: 0
-  maxValue: 0
-  EventType: 0
+  BuildingType: 2
+  Name: "Sup\xE9rette"
+  Desc: "Pendant votre tour uniquement, recevez 3 pi\xE8ces de la banque"
+  Cost: 2
+  minValue: 4
+  maxValue: 4
+  EventType: 2
   cfo_CoinsNumber: 0
   AllPlayers: 0
   CurrentPlayer: 0
-  cfb_CoinsNumber: 0
+  cfb_CoinsNumber: 3
   ForEachBuilding: 0
   ForEachType: 0
   ForbiddenType: 0

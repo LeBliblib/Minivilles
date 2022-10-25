@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: Cafe
   m_EditorClassIdentifier: 
   texture: {fileID: 0}
-  Color: 0
-  BuildingType: 0
-  Name: 
-  Desc: 
-  Cost: 0
-  minValue: 0
-  maxValue: 0
-  EventType: 0
-  cfo_CoinsNumber: 0
+  Color: 2
+  BuildingType: 5
+  Name: "Caf\xE9"
+  Desc: "Recevez 1 pi\xE8ce du joueur qui a lancc\xE9 les d\xE9s"
+  Cost: 2
+  minValue: 3
+  maxValue: 3
+  EventType: 1
+  cfo_CoinsNumber: 1
   AllPlayers: 0
-  CurrentPlayer: 0
+  CurrentPlayer: 1
   cfb_CoinsNumber: 0
   ForEachBuilding: 0
   ForEachType: 0
