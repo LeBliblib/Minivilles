@@ -25,7 +25,7 @@ public class TrainStation : Monument
 
         UIManager.PopUpCallback callback = ChangeDiceNumber;
 
-        game.ui.ShowPopUp("Gare", "Voulez-vous lancer 2 dés ?", callback);
+        game.ui.ShowChoosePopUp("Gare", "Voulez-vous lancer 2 dés ?", callback);
     }
 
     public void ChangeDiceNumber(bool isValid)

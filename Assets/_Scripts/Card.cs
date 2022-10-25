@@ -37,7 +37,10 @@ public class Card
         if (values.Color == CardColor.Green || values.Color == CardColor.Purple)
             if (Game.instance.GetCurrentPlayerID() != PlayerID) return false;
 
-        if(diceRoll >= values.minValue && diceRoll <= values.maxValue)
+        if (values.Color == CardColor.Red)
+            if (Game.instance.GetCurrentPlayerID() == PlayerID) return false;
+
+        if (diceRoll >= values.minValue && diceRoll <= values.maxValue)
         {
             cardEvent.Activate(Game.instance.GetPlayer(PlayerID)); //Game.instance.GetPlayer(PlayerID)
             return true;

@@ -14,7 +14,7 @@ public class Player
     public Player(string name, int playerID)
     {
         this.name = name;
-        coins = 3;
+        coins = 250;
 
         PlayerID = playerID;
         Game.instance.ui.RefreshCoins(coins, PlayerID);

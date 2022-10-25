@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CoinsFromOtherEvent : CardEvent
@@ -58,7 +59,41 @@ public class CoinsFromOtherEvent : CardEvent
         }
         else
         {
-            //Ask for which player to get
+            UIManager.PopUpSelectCallback callback = TargettingCallback;
+
+            game.ui.ShowSelectPopUp(callback);
+            game.StartCoroutine(WaitForTarget(player));
         }
+    }
+
+    int target = -1;
+    IEnumerator WaitForTarget(Player player)
+    {
+        Game game = Game.instance;
+
+        while(target == -1)
+        {
+            yield return null;
+        }
+
+        Player p2 = game.GetPlayer(target);
+
+        if (p2.coins >= coinsNumber)
+        {
+            p2.ChangeCoins(-coinsNumber);
+            player.ChangeCoins(coinsNumber);
+        }
+        else
+        {
+            p2.ChangeCoins(-p2.coins);
+            player.ChangeCoins(p2.coins);
+        }
+
+        target = -1;
+    }
+
+    public void TargettingCallback(int id)
+    {
+        target = id;
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class UIManager : MonoBehaviour
@@ -15,17 +16,50 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] List<Sprite> monumentSprites;
 
+    [Header("PopUp")]
     [SerializeField] GameObject popUp;
-    [SerializeField] TextMeshProUGUI popUpInside, popUpTitle;
     [SerializeField] float popUpAnimTime;
+
+    [SerializeField] GameObject choiceContent, selectContent;
+
+    [Header("PopUp Choice")]
+    [SerializeField] TextMeshProUGUI popUpInside, popUpTitle;
+
+    [Header("PopUp PlayerSelect")]
+    [SerializeField] UIElement playerSelectPrefab;
+    [SerializeField] Transform playerSelectGrid;
+    List<UIElement> playerSelects = new();
 
     public delegate void PopUpCallback(bool valid);
     public PopUpCallback currentPopupCallback;
+
+    public delegate void PopUpSelectCallback(int selectedID);
+    public PopUpSelectCallback currentSelectPopUpCallback;
 
     private void Awake()
     {
         dice.SetActive(false);
         popUp.transform.localScale = Vector3.zero;
+    }
+
+    private void Start()
+    {
+        List<Player> players = Game.instance.GetAllPlayers();
+
+        foreach(Player player in players)
+        {
+            UIElement elem = Instantiate(playerSelectPrefab, playerSelectGrid);
+            elem.SetText(0, player.name);
+            elem.SetText(1, "" + player.coins);
+
+            elem.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() => 
+            {
+                HidePopUp();
+                PlayerSelectDone(player.PlayerID);
+            });
+
+            playerSelects.Add(elem);
+        }
     }
 
     public void ShowDiceRoll(int rollValue)
@@ -70,16 +104,41 @@ public class UIManager : MonoBehaviour
         monumentObject.ChangeSprite(monumentSprites[monumentID]);
     }
 
-    public void ShowPopUp(string title, string desc, PopUpCallback callback)
+    public void ShowChoosePopUp(string title, string desc, PopUpCallback callback)
     {
-        LeanTween.cancel(popUp);
+        choiceContent.SetActive(true);
+        selectContent.SetActive(false);
 
         currentPopupCallback = callback;
 
-        popUp.transform.localScale = Vector3.zero;
-
         popUpTitle.text = title;
         popUpInside.text = desc;
+
+        ShowPopUp();
+    }
+
+    public void ShowSelectPopUp(PopUpSelectCallback callback)
+    {
+        List<Player> players = Game.instance.GetAllPlayers();
+
+        for(int i = 0; i < players.Count; i++)
+        {
+            playerSelects[i].SetText(1, "" + players[i].coins);
+        }
+
+        choiceContent.SetActive(false);
+        selectContent.SetActive(true);
+
+        currentSelectPopUpCallback = callback;
+
+        ShowPopUp();
+    }
+
+    public void ShowPopUp()
+    {
+        LeanTween.cancel(popUp);
+
+        popUp.transform.localScale = Vector3.zero;
 
         LeanTween.scale(popUp, Vector3.one, popUpAnimTime).setEaseInOutExpo().setIgnoreTimeScale(true);
     }
@@ -93,5 +152,10 @@ public class UIManager : MonoBehaviour
     public void ChooseSelectPopUp(bool valid)
     {
         currentPopupCallback?.Invoke(valid);
+    }
+
+    public void PlayerSelectDone(int id)
+    {
+        currentSelectPopUpCallback?.Invoke(id);
     }
 }

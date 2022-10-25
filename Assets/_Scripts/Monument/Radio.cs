@@ -28,7 +28,7 @@ public class Radio : Monument
 
         UIManager.PopUpCallback callback = Reroll;
 
-        game.ui.ShowPopUp("Tour Radio", "Voulez-vous relancer les dés ?", callback);
+        game.ui.ShowChoosePopUp("Tour Radio", "Voulez-vous relancer les dés ?", callback);
     }
 
     public void Reroll(bool isValid)
