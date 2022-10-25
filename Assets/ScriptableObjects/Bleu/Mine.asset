@@ -15,8 +15,8 @@ MonoBehaviour:
   texture: {fileID: 21300000, guid: a29f4bdb4b3f2464f8b8beb7259c6464, type: 3}
   Color: 1
   BuildingType: 4
-  Name: erre
-  Desc: gergerg
+  Name: Mine
+  Desc: "Pendant le tour de n'importe quel joueur, recevez 5 pi\xE8ces de la banque"
   Cost: 6
   minValue: 9
   maxValue: 9

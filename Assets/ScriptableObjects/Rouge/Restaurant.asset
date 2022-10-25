@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07dc9230e01fb0e4ab04c4e88c06390f, type: 3}
   m_Name: Restaurant
   m_EditorClassIdentifier: 
-  texture: {fileID: 0}
-  Color: 0
-  BuildingType: 0
-  Name: 
-  Desc: 
-  Cost: 0
-  minValue: 0
-  maxValue: 0
-  EventType: 0
-  cfo_CoinsNumber: 0
+  texture: {fileID: 21300000, guid: 0e521536fd5bbc247a085fca67016837, type: 3}
+  Color: 2
+  BuildingType: 5
+  Name: Restaurant
+  Desc: "Recevez 2 pi\xE8ces du joueur qui a lanc\xE9 les d\xE9s"
+  Cost: 3
+  minValue: 9
+  maxValue: 10
+  EventType: 1
+  cfo_CoinsNumber: 2
   AllPlayers: 0
-  CurrentPlayer: 0
+  CurrentPlayer: 1
   cfb_CoinsNumber: 0
   ForEachBuilding: 0
   ForEachType: 0

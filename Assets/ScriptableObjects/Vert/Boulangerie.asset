@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   texture: {fileID: 21300000, guid: c70c8ee5261ab1649b4591d93e452244, type: 3}
   Color: 0
-  BuildingType: 0
-  Name: 544
-  Desc: 5454
+  BuildingType: 2
+  Name: Boulangerie
+  Desc: "Pendant votre tour uniquement, recevez 1 pi\xE8ce de la banque"
   Cost: 1
   minValue: 2
   maxValue: 3

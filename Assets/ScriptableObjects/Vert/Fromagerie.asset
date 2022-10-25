@@ -12,19 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07dc9230e01fb0e4ab04c4e88c06390f, type: 3}
   m_Name: Fromagerie
   m_EditorClassIdentifier: 
-  texture: {fileID: 0}
+  texture: {fileID: 21300000, guid: 6fc64ec30299f8441ad9b4fe59255f51, type: 3}
   Color: 0
-  BuildingType: 0
-  Name: 
-  Desc: 
-  Cost: 0
-  minValue: 0
-  maxValue: 0
-  EventType: 0
+  BuildingType: 3
+  Name: Fromagerie
+  Desc: "Pendant votre tour uniquement, recevez 3 pi\xE8ces de la banque pour chaque
+    \xE9tablissement de type Animals que vous poss\xE9dez"
+  Cost: 5
+  minValue: 7
+  maxValue: 7
+  EventType: 2
   cfo_CoinsNumber: 0
   AllPlayers: 0
   CurrentPlayer: 0
-  cfb_CoinsNumber: 0
-  ForEachBuilding: 0
-  ForEachType: 0
+  cfb_CoinsNumber: 3
+  ForEachBuilding: 1
+  ForEachType: 1
   ForbiddenType: 0

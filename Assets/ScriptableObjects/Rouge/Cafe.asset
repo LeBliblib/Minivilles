@@ -16,7 +16,7 @@ MonoBehaviour:
   Color: 2
   BuildingType: 5
   Name: "Caf\xE9"
-  Desc: fzefrz
+  Desc: "Recevez 1 pi\xE8ce du joueur qui a lancc\xE9 les d\xE9s"
   Cost: 2
   minValue: 3
   maxValue: 3
