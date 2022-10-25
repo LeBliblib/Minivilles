@@ -85,10 +85,11 @@ public class MenuManager : MonoBehaviour
             timer = 0;
         }
 
-        if(step == 5)
+        if(timer >= 0.1f && step == 5)
         {
             LeanTween.scale(panel2, new Vector2(1.0f, 1.0f), 1.0f).setEase(LeanTweenType.easeOutElastic);
             step++;
+            timer = 0;
         }
 
         if (timer >= 0.4 && step ==7)
