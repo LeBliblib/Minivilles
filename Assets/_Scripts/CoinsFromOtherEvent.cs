@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CoinsFromOtherEvent : CardEvent
 {
-    int coinsNumber;
+    public int coinsNumber;
 
     bool allPlayers;
     bool currentPlayer;

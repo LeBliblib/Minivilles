@@ -29,4 +29,6 @@ public abstract class Monument
     }
  
     public abstract void Activate();
+
+    public abstract void Destroy();
 }

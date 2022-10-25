@@ -22,14 +22,20 @@ public class Game : MonoBehaviour
     public delegate void OnTurnStart(int turnPlayerID);
     public event OnTurnStart onTurnStart;
 
-    public delegate void OnDiceRoll(int rollsSum);
+    public delegate void OnDiceRoll(int[] rolls, int playerID);
     public event OnDiceRoll onDiceRoll;
+    Coroutine diceCoroutine;
 
     public delegate void OnCardBuy(Card card);
     public event OnCardBuy onCardBuy;
 
     public delegate void OnTurnEnd(int turnPlayerID);
     public event OnTurnEnd onTurnEnd;
+
+    int turnStartCallbacks = 0;
+    int diceRollCallbacks = 0;
+    int cardBuyCallbacks = 0;
+    int turnEndCallbacks = 0;
 
     public static Game instance;
 
@@ -92,25 +98,98 @@ public class Game : MonoBehaviour
         dicesNumber = 1;
         onTurnStart?.Invoke(currentTurnPlayerID);
 
+        int listeners = 0;
+
+        if (onTurnStart?.GetInvocationList() != null) listeners = onTurnStart.GetInvocationList().Length;
+
+        if (listeners <= 0)
+            RollDice(dicesNumber);
+        else
+            StartCoroutine(WaitForTurnStartEvent(listeners));
+    }
+
+    IEnumerator WaitForTurnStartEvent(int callbacksNb)
+    {
+        while(turnStartCallbacks < callbacksNb)
+        {
+            yield return null;
+        }
+
+        turnStartCallbacks = 0;
+
         RollDice(dicesNumber);
+    }
+
+    public void ChangeDiceNumbers(int diceNb)
+    {
+        dicesNumber = diceNb;
+    }
+
+    public void SetCallback(CallbackTypes type)
+    {
+        switch(type)
+        {
+            case (CallbackTypes.TurnStart):
+                turnStartCallbacks++;
+                break;
+            case (CallbackTypes.DiceRoll):
+                diceRollCallbacks++;
+                break;
+            case (CallbackTypes.CardBuy):
+                cardBuyCallbacks++;
+                break;
+            case (CallbackTypes.TurnEnd):
+                turnEndCallbacks++;
+                break;
+
+        }
     }
 
     public void RollDice(int diceNumber)
     {
         int rollsSum = 0;
 
-        for(int i = 0; i < diceNumber; i++)
+        int[] rolls = new int[diceNumber];
+
+        for (int i = 0; i < diceNumber; i++)
         {
             //Renvoie un int avec la valeur du D roll
-            rollsSum += gameDice.Roll();
+            rolls[i] = gameDice.Roll();
+            rollsSum += rolls[i];
         }
 
         Debug.Log("ergergh " + currentTurnPlayerID);
         ui.ShowDiceRoll(rollsSum);
 
-        onDiceRoll?.Invoke(rollsSum);
+        onDiceRoll?.Invoke(rolls, currentTurnPlayerID);
+
+        int listeners = 0;
+
+        if (onDiceRoll?.GetInvocationList() != null) listeners = onDiceRoll.GetInvocationList().Length;
+
+        if (listeners <= 0)
+            CheckForCardsActivation(rollsSum);
+        else
+            diceCoroutine = StartCoroutine(WaitForRollDiceEvent(listeners, rollsSum));
+    }
+
+    IEnumerator WaitForRollDiceEvent(int callbacksNb, int rollsSum)
+    {
+        while (diceRollCallbacks < callbacksNb)
+        {
+            yield return null;
+        }
+
+        diceRollCallbacks = 0;
 
         CheckForCardsActivation(rollsSum);
+    }
+
+    public void RerollDice()
+    {
+        if (diceCoroutine != null) StopCoroutine(diceCoroutine);
+        diceRollCallbacks = 0;
+        RollDice(dicesNumber);
     }
 
     public void CheckForCardsActivation(int rollsSum)
@@ -189,8 +268,6 @@ public class Game : MonoBehaviour
 
         onTurnEnd?.Invoke(currentTurnPlayerID);
 
-
-
         StartTurn();
     }
 
@@ -208,5 +285,18 @@ public class Game : MonoBehaviour
     {
         return currentTurnPlayerID;
     }
+
+    public void SetCurrentPlayerID(int value)
+    {
+        currentTurnPlayerID = value;
+    }
     #endregion
+}
+
+public enum CallbackTypes
+{
+    TurnStart,
+    DiceRoll,
+    CardBuy,
+    TurnEnd
 }

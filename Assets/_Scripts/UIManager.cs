@@ -15,9 +15,17 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] List<Sprite> monumentSprites;
 
+    [SerializeField] GameObject popUp;
+    [SerializeField] TextMeshProUGUI popUpInside, popUpTitle;
+    [SerializeField] float popUpAnimTime;
+
+    public delegate void PopUpCallback(bool valid);
+    public PopUpCallback currentPopupCallback;
+
     private void Awake()
     {
         dice.SetActive(false);
+        popUp.transform.localScale = Vector3.zero;
     }
 
     public void ShowDiceRoll(int rollValue)
@@ -60,5 +68,30 @@ public class UIManager : MonoBehaviour
         CardGameObject monumentObject = players[playerID].GetMonument(monumentID);
 
         monumentObject.ChangeSprite(monumentSprites[monumentID]);
+    }
+
+    public void ShowPopUp(string title, string desc, PopUpCallback callback)
+    {
+        LeanTween.cancel(popUp);
+
+        currentPopupCallback = callback;
+
+        popUp.transform.localScale = Vector3.zero;
+
+        popUpTitle.text = title;
+        popUpInside.text = desc;
+
+        LeanTween.scale(popUp, Vector3.one, popUpAnimTime).setEaseInOutExpo().setIgnoreTimeScale(true);
+    }
+
+    public void HidePopUp()
+    {
+        LeanTween.cancel(popUp);
+        LeanTween.scale(popUp, Vector3.zero, popUpAnimTime).setEaseInOutExpo().setIgnoreTimeScale(true);
+    }
+
+    public void ChooseSelectPopUp(bool valid)
+    {
+        currentPopupCallback?.Invoke(valid);
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CoinsFromBankEvent : CardEvent
 {
-    int coinsNumber;
+    public int coinsNumber;
 
     bool forEachBuilding;
     BuildingType buildingType;

@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class Card
 {
     public int PlayerID;
 
+    public int coinsBonus;
+
     public CardScriptableObject values;
 
-    CardEvent cardEvent;
+    public CardEvent cardEvent;
 
     public Card(int ID, CardScriptableObject _values)
     {
