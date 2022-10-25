@@ -41,9 +41,16 @@ public class Player
 
     public void CheckForCards(int diceRoll)
     {
+        int cardID = 0;
+
         foreach(Card card in cards)
         {
-            card.UseCard(diceRoll);
+            if (card.UseCard(diceRoll))
+            {
+                Game.instance.ui.ShowCardActivation(PlayerID, cardID);
+            }
+
+            cardID++;
         }
     }
 

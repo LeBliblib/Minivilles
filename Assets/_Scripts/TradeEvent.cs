@@ -13,6 +13,6 @@ public class TradeEvent : CardEvent
 
     public override void Activate(Player player)
     {
-        throw new System.NotImplementedException();
+        //Ask for trade
     }
 }

@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-
+[Serializable]
 public class Pile
 {
-    private List<PileCards> cards;
+    public List<PileCards> cards;
 
     public Pile()
     {
@@ -20,6 +20,7 @@ public class Pile
 
     public PileCards GetCard(int index)
     {
+        Debug.Log(index);
         return cards[index];
     }
 
@@ -34,6 +35,7 @@ public class Pile
     }
 }
 
+[Serializable]
 public struct PileCards
 {
     public CardScriptableObject cardSO;

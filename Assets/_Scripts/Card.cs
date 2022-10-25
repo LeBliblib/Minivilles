@@ -29,12 +29,17 @@ public class Card
         }
     }
 
-    public void UseCard(int diceRoll)
+    public bool UseCard(int diceRoll)
     {
         if (values.Color == CardColor.Green || values.Color == CardColor.Purple)
-            if (Game.instance.GetCurrentPlayerID() != PlayerID) return;
+            if (Game.instance.GetCurrentPlayerID() != PlayerID) return false;
 
         if(diceRoll >= values.minValue && diceRoll <= values.maxValue)
+        {
             cardEvent.Activate(Game.instance.GetPlayer(PlayerID)); //Game.instance.GetPlayer(PlayerID)
+            return true;
+        }
+
+        return false;
     }
 }
