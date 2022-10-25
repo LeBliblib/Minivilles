@@ -18,14 +18,17 @@ public class CoinsFromBankEvent : CardEvent
 
     public override void Activate(Player player)
     {
-        if(!forEachBuilding)
-            player.ChangeCoin(coinsNumber);
+        if (!forEachBuilding)
+        {
+            player.ChangeCoins(coinsNumber);
+            Debug.Log("Player : " + player.name + " a gagné " + coinsNumber);
+        }
         else
         {
             foreach(Card card in player.cards)
             {
                 if(card.values.BuildingType == buildingType)
-                    player.ChangeCoin(coinsNumber);
+                    player.ChangeCoins(coinsNumber);
             }
         }
     }

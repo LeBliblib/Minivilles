@@ -7,21 +7,53 @@ public class Player
     public string name;
     public int coins;
     public List<Card> cards = new List<Card>();
+    public List<Monument> monuments = new List<Monument>();
 
-    public Player(string name)
+    public int PlayerID;
+
+    public Player(string name, int playerID)
     {
         this.name = name;
-        this.coins = 3;
+        coins = 3;
+
+        PlayerID = playerID;
+        Game.instance.ui.RefreshCoins(coins, PlayerID);
+
         //Ajouter cartes de base
+        monuments.Add(new TrainStation("Gare", "Vous pouvez lancer deux dès.", 4, playerID));
+        monuments.Add(new Mall("Centre commercial", "Vos établissements de type Restaurant et Food rapportent une pièce de plus.", 10, playerID));
+        monuments.Add(new Park("Parc d'attractions", "Si votre jet de dès est un double, rejouez un tour après celui-ci.", 16, playerID));
+        monuments.Add(new Radio("Tour radio", "Une fois par tour, vous pouvez choisir de relancer vos dès.", 22, playerID));
+
+
     }
 
-    public void ChangeCoin(int value)
+    public void ChangeCoins(int value)
     {
         coins += value;
+        Game.instance.ui.RefreshCoins(coins, PlayerID);
     }
 
     public void AddCard(Card cardToAdd)
     {
         cards.Add(cardToAdd);
+    }
+
+    public void CheckForCards(int diceRoll)
+    {
+        foreach(Card card in cards)
+        {
+            card.UseCard(diceRoll);
+        }
+    }
+
+    public bool HasCardColor(CardColor color)
+    {
+        foreach(Card card in cards)
+        {
+            if (card.values.Color == color) return true;
+        }
+
+        return false;
     }
 }

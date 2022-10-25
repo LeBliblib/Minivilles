@@ -9,7 +9,7 @@ public abstract class Monument
     public int Cost;
     protected int PlayerID;
 
-    protected bool isActive;
+    public bool isActive;
 
     public Monument(string name, string desc, int cost, int playerID)
     {
@@ -23,7 +23,7 @@ public abstract class Monument
 
     public virtual void Buy()
     {
-        isActive = false;
+        isActive = true;
 
         //Subscribe to event
     }
