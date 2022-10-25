@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07dc9230e01fb0e4ab04c4e88c06390f, type: 3}
   m_Name: Verger
   m_EditorClassIdentifier: 
-  texture: {fileID: 0}
+  texture: {fileID: 21300000, guid: 9eaa34a87350c7c4999a2dcf14095af5, type: 3}
   Color: 1
   BuildingType: 0
   Name: Verger

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07dc9230e01fb0e4ab04c4e88c06390f, type: 3}
   m_Name: Superette
   m_EditorClassIdentifier: 
-  texture: {fileID: 0}
+  texture: {fileID: 21300000, guid: 0ebee0859c96dc14582b36681bb68968, type: 3}
   Color: 0
   BuildingType: 2
   Name: "Sup\xE9rette"

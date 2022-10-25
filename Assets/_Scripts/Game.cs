@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Game : MonoBehaviour
 {
     public UIManager ui;
 
     [SerializeField] List<CardScriptableObject> cardsSO = new List<CardScriptableObject>();
+    [SerializeField] GameObject cardsPileGameObject;
 
     private List<Player> players = new List<Player>();
-    private Pile gamePile = new Pile();
+    public Pile gamePile = new Pile();
     private Dice gameDice = new Dice();
 
     int currentTurnPlayerID;
@@ -42,11 +44,29 @@ public class Game : MonoBehaviour
     void Start()
     {
         int index = 0;
+        int yIndex = 0;
+        int xIndex = 0;
         foreach (CardScriptableObject c in cardsSO) 
         {
             gamePile.AddCard(c, 6);
+            Vector2 pos = new Vector2(xIndex * 1.75f - (1.75f*2f), yIndex * 2.75f + cardsSO.Count/5);
+
+            ClickableGameObject card = Instantiate(cardsPileGameObject, pos, Quaternion.identity).GetComponentInChildren<ClickableGameObject>();
+            card.ChangeSprite(c.texture);
+
+            int i = index;
+
+            card.toDo.AddListener(() => { BuyCard(i); });
+            Debug.Log(index);
 
             index++;
+            xIndex++;
+
+            if (index % 5 == 0)
+            {
+                yIndex--;
+                xIndex = 0;
+            }
         }
 
         for(int i = 0; i < 2; i++)
@@ -126,7 +146,7 @@ public class Game : MonoBehaviour
 
         player.ChangeCoins(-card.values.Cost);
 
-        //ui.GiveCardToPlayer(currentPlayerID);
+        ui.GiveCardToPlayer(currentTurnPlayerID, pile.cardSO);
 
         canBuy = false;
         onCardBuy?.Invoke(card);
@@ -148,7 +168,7 @@ public class Game : MonoBehaviour
         player.ChangeCoins(-monument.Cost);
         monument.Buy();
 
-        //ui.BuyMonument(currentPlayerID, moinumentID);
+        ui.BuyMonument(currentTurnPlayerID, monumentID);
 
         canBuy = false;
 
@@ -177,6 +197,11 @@ public class Game : MonoBehaviour
     public Player GetPlayer(int index)
     {
         return players[index];
+    }
+
+    public List<Player> GetAllPlayers()
+    {
+        return players;
     }
 
     public int GetCurrentPlayerID()

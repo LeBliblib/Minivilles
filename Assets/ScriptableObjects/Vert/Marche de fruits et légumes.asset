@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07dc9230e01fb0e4ab04c4e88c06390f, type: 3}
   m_Name: "Marche de fruits et l\xE9gumes"
   m_EditorClassIdentifier: 
-  texture: {fileID: 0}
+  texture: {fileID: 21300000, guid: ed87549e4391cb14680bc0d8e0f0d561, type: 3}
   Color: 0
   BuildingType: 6
   Name: "March\xE9 de fruits et l\xE9gumes"

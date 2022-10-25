@@ -8,6 +8,8 @@ public class ClickableGameObject : MonoBehaviour
     Vector3 baseSize;
     Vector3 baseRot;
 
+    [SerializeField] List<SpriteRenderer> srs;
+
     [Header("Transform Changes")]
     [SerializeField] Vector3 sizeChange;
     [SerializeField] Vector3 rotChange;
@@ -17,7 +19,7 @@ public class ClickableGameObject : MonoBehaviour
     [SerializeField] float clickAnimSpeed;
 
     [Header("On Click")]
-    [SerializeField] UnityEvent toDo;
+    public UnityEvent toDo;
 
     private void Start()
     {
@@ -31,12 +33,13 @@ public class ClickableGameObject : MonoBehaviour
 
         LeanTween.scale(gameObject, baseSize + sizeChange, animSpeed).setEaseInOutExpo();
         LeanTween.rotate(gameObject, baseRot + rotChange, animSpeed).setEaseInOutExpo();
+        srs[0].sortingOrder = 15;
     }
 
     public void OnMouseExit()
     {
         LeanTween.cancel(gameObject);
-
+        srs[0].sortingOrder = 3;
         LeanTween.scale(gameObject, baseSize, animSpeed).setEaseInOutExpo();
         LeanTween.rotate(gameObject, baseRot, animSpeed).setEaseInOutExpo();
     }
@@ -45,6 +48,8 @@ public class ClickableGameObject : MonoBehaviour
     {
         LeanTween.cancel(gameObject);
 
+
+
         toDo.Invoke();
 
         LeanTween.scale(gameObject, baseSize, clickAnimSpeed).setEaseInExpo().setOnComplete(() =>
@@ -52,5 +57,13 @@ public class ClickableGameObject : MonoBehaviour
             LeanTween.scale(gameObject, baseSize + sizeChange, clickAnimSpeed).setEaseOutExpo();
             LeanTween.rotate(gameObject, baseRot + rotChange, animSpeed).setEaseOutExpo();
         });
+    }
+
+    public void ChangeSprite(Sprite sprite)
+    {
+        foreach(SpriteRenderer sr in srs)
+        {
+            sr.sprite = sprite;
+        }
     }
 }
