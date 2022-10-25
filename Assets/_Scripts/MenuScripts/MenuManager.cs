@@ -13,11 +13,11 @@ public class MenuManager : MonoBehaviour
 
     [SerializeField] Image title;
     [SerializeField] Image sunburst;
+    [SerializeField] GameObject panel1;
+    [SerializeField] GameObject panel2;
     [SerializeField] Image[] curtains;
 
     [SerializeField] UnityEvent curtainsAction;
-    [SerializeField] UnityEvent titlePop;
-    [SerializeField] UnityEvent sunburstPop;
 
     byte step;
 
@@ -36,6 +36,8 @@ public class MenuManager : MonoBehaviour
 
         title.transform.localScale = new Vector2(0, 0);
         sunburst.transform.localScale = new Vector2(0, 0);
+        panel1.transform.localScale = new Vector2(0, 0);
+        panel2.transform.localScale = new Vector2(0, 0);
 
         curtains[0].transform.position = new Vector2(Screen.width / 2, Screen.height);
         curtains[0].rectTransform.sizeDelta = new Vector2(Screen.width, Screen.height / 2);
@@ -53,7 +55,8 @@ public class MenuManager : MonoBehaviour
     void Update()
     {
 
-        timer += Time.deltaTime;
+        if (step != 4 && step != 6) { timer += Time.deltaTime; }
+
         if ( timer >= 0.5f && step == 0)
         {
             curtainsAction.Invoke();
@@ -63,16 +66,40 @@ public class MenuManager : MonoBehaviour
 
         if(timer>= 0.3f && step == 1)
         {
-            titlePop.Invoke();
+            LeanTween.scale(title.gameObject, new Vector2(1.0f, 1.0f), 2.0f).setEase(LeanTweenType.easeOutElastic);
             step++;
             timer = 0;
         }
 
         if (timer >= 0.3f && step == 2)
         {
-            sunburstPop.Invoke();
+            LeanTween.scale(sunburst.gameObject, new Vector2(1.0f, 1.0f), 2.0f).setEase(LeanTweenType.easeOutElastic);
             step++;
             timer = 0;
+        }
+
+        if(timer>= 0.6f && step == 3)
+        {
+            LeanTween.scale(panel1, new Vector2(1.0f, 1.0f), 1.0f).setEase(LeanTweenType.easeOutElastic);
+            step++;
+            timer = 0;
+        }
+
+        if(step == 5)
+        {
+            LeanTween.scale(panel2, new Vector2(1.0f, 1.0f), 1.0f).setEase(LeanTweenType.easeOutElastic);
+            step++;
+        }
+
+        if (timer >= 0.4 && step ==7)
+        {
+            timer = 0;
+            SceneManager.LoadScene(1);
+        }
+
+        if(step == 10 && timer>= 0.4f)
+        {
+            Application.Quit();
         }
     }
 
@@ -95,13 +122,29 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    public void PopTitle()
+    public void PlayButton()
     {
-        LeanTween.scale(title.gameObject, new Vector2(1.3f, 1.3f), 2.0f).setEase(LeanTweenType.easeOutElastic);
+        LeanTween.scale(panel1, new Vector2(0,0),0.3f).setEase(LeanTweenType.easeOutSine);
+        step++;
     }
 
-    public void PopSunburst()
+    public void ExitButton()
     {
-        LeanTween.scale(sunburst.gameObject, new Vector2(1.0f, 1.0f), 2.0f).setEase(LeanTweenType.easeOutElastic);
+        CurtainsAction();
+        step = 10;
+    }
+
+    public void SetEasyDifficultyButton()
+    {
+        CurtainsAction();
+        difficulty = 0;
+        step++;
+    }
+
+    public void SetHardDifficultyButton()
+    {
+        CurtainsAction();
+        difficulty = 1;
+        step++;
     }
 }
