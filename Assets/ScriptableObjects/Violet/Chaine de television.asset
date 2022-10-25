@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07dc9230e01fb0e4ab04c4e88c06390f, type: 3}
   m_Name: Chaine de television
   m_EditorClassIdentifier: 
-  texture: {fileID: 0}
+  texture: {fileID: 21300000, guid: 6bbb2c51092e7ec45bd3eacb607b5781, type: 3}
   Color: 3
   BuildingType: 7
   Name: "Cha\xEEne de t\xE9l\xE9vision"
