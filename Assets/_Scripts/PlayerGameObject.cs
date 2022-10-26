@@ -14,6 +14,18 @@ public class PlayerGameObject : MonoBehaviour
         cards.Add(co);
     }
 
+    public void RemoveCard(int id)
+    {
+        Destroy(cards[id].gameObject);
+        cards.RemoveAt(id);
+
+    }
+
+    public int GetCardNumber()
+    {
+        return cards.Count;
+    }
+
     public void ActivateCard(int index)
     {
         cards[index].ShowActivation();

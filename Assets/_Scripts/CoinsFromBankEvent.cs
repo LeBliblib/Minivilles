@@ -16,7 +16,7 @@ public class CoinsFromBankEvent : CardEvent
         buildingType = _buildingType;
     }
 
-    public override void Activate(Player player)
+    public override void Activate(Player player, Card card)
     {
         if (!forEachBuilding)
         {
@@ -25,11 +25,13 @@ public class CoinsFromBankEvent : CardEvent
         }
         else
         {
-            foreach(Card card in player.cards)
+            foreach(Card c in player.cards)
             {
-                if(card.values.BuildingType == buildingType)
+                if(c.values.BuildingType == buildingType)
                     player.ChangeCoins(coinsNumber);
             }
         }
+
+        card.SetFinished();
     }
 }

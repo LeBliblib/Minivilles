@@ -13,6 +13,8 @@ public class Card
 
     public CardEvent cardEvent;
 
+    bool finished;
+    
     public Card(int ID, CardScriptableObject _values)
     {
         PlayerID = ID;
@@ -42,7 +44,23 @@ public class Card
 
         if (diceRoll >= values.minValue && diceRoll <= values.maxValue)
         {
-            cardEvent.Activate(Game.instance.GetPlayer(PlayerID)); //Game.instance.GetPlayer(PlayerID)
+            cardEvent.Activate(Game.instance.GetPlayer(PlayerID), this);
+            return true;
+        }
+
+        return false;
+    }
+
+    public void SetFinished()
+    {
+        finished = true;
+    }
+
+    public bool GetFinished()
+    {
+        if (finished == true)
+        {
+            finished = false;
             return true;
         }
 

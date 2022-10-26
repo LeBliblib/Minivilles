@@ -17,7 +17,7 @@ public class CoinsFromOtherEvent : CardEvent
         currentPlayer = _currentPlayer;
     }
 
-    public override void Activate(Player player)
+    public override void Activate(Player player, Card card)
     {
         Game game = Game.instance;
 
@@ -35,6 +35,8 @@ public class CoinsFromOtherEvent : CardEvent
                 p2.ChangeCoins(-p2.coins);
                 player.ChangeCoins(p2.coins);
             }
+
+            card.SetFinished();
         }
         else if (allPlayers)
         {
@@ -56,18 +58,20 @@ public class CoinsFromOtherEvent : CardEvent
                     }
                 }
             }
+
+            card.SetFinished();
         }
         else
         {
             UIManager.PopUpSelectCallback callback = TargettingCallback;
 
-            game.ui.ShowSelectPopUp(callback);
-            game.StartCoroutine(WaitForTarget(player));
+            game.ui.ShowSelectPopUp("Selection", player.PlayerID, callback);
+            game.StartCoroutine(WaitForTarget(player,card));
         }
     }
 
     int target = -1;
-    IEnumerator WaitForTarget(Player player)
+    IEnumerator WaitForTarget(Player player, Card card)
     {
         Game game = Game.instance;
 
@@ -89,6 +93,7 @@ public class CoinsFromOtherEvent : CardEvent
             player.ChangeCoins(p2.coins);
         }
 
+        card.SetFinished();
         target = -1;
     }
 

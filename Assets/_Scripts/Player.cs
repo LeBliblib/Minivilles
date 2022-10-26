@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Player
@@ -41,17 +42,31 @@ public class Player
 
     public void CheckForCards(int diceRoll)
     {
+        Game.instance.StartCoroutine(CardsActivationRoutine(diceRoll));
+    }
+
+    IEnumerator CardsActivationRoutine(int diceRoll)
+    {
         int cardID = 0;
 
-        foreach(Card card in cards)
+        foreach (Card card in cards.ToList())
         {
             if (card.UseCard(diceRoll))
             {
                 Game.instance.ui.ShowCardActivation(PlayerID, cardID);
+
+                while (!card.GetFinished())
+                {
+                    yield return null;
+                }
+
+                yield return new WaitForSeconds(0.5f);
             }
 
             cardID++;
         }
+
+        Game.instance.SetPlayerDone();
     }
 
     public bool HasCardColor(CardColor color)
@@ -59,6 +74,16 @@ public class Player
         foreach(Card card in cards)
         {
             if (card.values.Color == color) return true;
+        }
+
+        return false;
+    }
+
+    public bool HasCard(CardScriptableObject cso)
+    {
+        foreach(Card card in cards)
+        {
+            if (card.values == cso) return true;
         }
 
         return false;

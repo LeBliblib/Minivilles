@@ -192,6 +192,8 @@ public class Game : MonoBehaviour
         RollDice(dicesNumber);
     }
 
+
+    int playerDoneActivation = 0;
     public void CheckForCardsActivation(int rollsSum)
     {
         foreach(Player p in players)
@@ -199,11 +201,23 @@ public class Game : MonoBehaviour
             p.CheckForCards(rollsSum);
         }
 
-        StartBuySequence();
+        StartCoroutine(StartBuySequence());
+    }
+    public void SetPlayerDone()
+    {
+        Debug.Log("Player done");
+        playerDoneActivation++;
     }
 
-    public void StartBuySequence()
+    public IEnumerator StartBuySequence()
     {
+        while(playerDoneActivation < players.Count)
+        {
+            yield return null;
+        }
+
+        Debug.Log("Can buy : " + playerDoneActivation + " " + players.Count);
+        playerDoneActivation = 0;
         canBuy = true;
     }
 
@@ -214,7 +228,7 @@ public class Game : MonoBehaviour
         Player player = players[currentTurnPlayerID];
         PileCards pile = gamePile.GetCard(cardID);
 
-        if (pile.cardSO.Color == CardColor.Purple && player.HasCardColor(CardColor.Purple)) return;
+        if (pile.cardSO.Color == CardColor.Purple && player.HasCard(cardsSO[cardID])) return;
         if (pile.cardSO.Cost > player.coins || pile.nb <= 0) return;
 
         Card card = new Card(currentTurnPlayerID, pile.cardSO);
