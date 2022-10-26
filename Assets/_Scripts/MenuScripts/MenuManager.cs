@@ -20,6 +20,7 @@ public class MenuManager : MonoBehaviour
 
     [Header("Audio")]
     [SerializeField] AudioSource mscMenuTheme;
+    [SerializeField] AudioSource sndCityMood;
     [SerializeField] AudioSource sndOnClickButton;
     [SerializeField] AudioSource sndLaunch;
 
@@ -104,7 +105,8 @@ public class MenuManager : MonoBehaviour
         if (timer >= 0.4 && step ==7)
         {
             mscMenuTheme.volume -= Time.deltaTime/2;
-            if(mscMenuTheme.volume <= 0f)
+            sndCityMood.volume -= Time.deltaTime / 4;
+            if (mscMenuTheme.volume <= 0f)
             {
                 SceneManager.LoadScene(1);
             }
@@ -113,6 +115,7 @@ public class MenuManager : MonoBehaviour
         if(step == 10 && timer>= 0.4f)
         {
             mscMenuTheme.volume -= Time.deltaTime/2;
+            sndCityMood.volume -= Time.deltaTime/3;
             if (mscMenuTheme.volume <= 0f)
             {
                 Application.Quit();
