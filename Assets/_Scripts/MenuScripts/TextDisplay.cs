@@ -6,28 +6,32 @@ using UnityEngine;
 public class TextDisplay : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI textMesh;
-    [SerializeField] string stringToShow;
+    string stringToShow;
 
     [Header("Random time (sec) for writing")]
     [SerializeField] float min;
     [SerializeField] float max;
 
-    float timer = 0.2f;
     byte counter = 0;
     internal bool isTextCoroutineSwitcherOn;
     bool isAllTextLoaded;
 
-    void Start()
+    void Awake()
     {
+        stringToShow = textMesh.text.ToString();
         textMesh.text = "";
         isTextCoroutineSwitcherOn = false;
         isAllTextLoaded = false;
     }
 
-    
+    private void OnEnable()
+    {
+        isTextCoroutineSwitcherOn = true;
+    }
+
+
     void Update()
     {
-
         if (isTextCoroutineSwitcherOn)
         {
             StartCoroutine(LoadText());
@@ -55,7 +59,6 @@ public class TextDisplay : MonoBehaviour
                 }
                 else
                 {
-                    timer = 0;
                     isAllTextLoaded = true;
                     counter = 0;
                 }

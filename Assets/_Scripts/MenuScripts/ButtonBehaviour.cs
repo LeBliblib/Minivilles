@@ -10,6 +10,8 @@ public class ButtonBehaviour : MonoBehaviour
     [SerializeField] Color onExitTextColor;
     [SerializeField] Color onEnterTextColor;
 
+    [SerializeField] AudioSource sndOnEnterButton;
+
     TextMeshProUGUI text;
     EventTrigger eventTrigger;
     EventTrigger.Entry entry1;
@@ -36,6 +38,7 @@ public class ButtonBehaviour : MonoBehaviour
 
     public void OnPointerEnter()
     {
+        sndOnEnterButton.Play();
         text.color = onEnterTextColor;
     }
 

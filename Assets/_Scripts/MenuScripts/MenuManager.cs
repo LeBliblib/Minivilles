@@ -11,12 +11,20 @@ public class MenuManager : MonoBehaviour
 {
     public static int difficulty = 0;
 
+    [Header("Visual")]
     [SerializeField] Image title;
     [SerializeField] Image sunburst;
     [SerializeField] GameObject panel1;
     [SerializeField] GameObject panel2;
     [SerializeField] Image[] curtains;
 
+    [Header("Audio")]
+    [SerializeField] AudioSource mscMenuTheme;
+    [SerializeField] AudioSource sndOnClickButton;
+    [SerializeField] AudioSource sndLaunch;
+
+
+    [Header("Events")]
     [SerializeField] UnityEvent curtainsAction;
 
     byte step;
@@ -66,6 +74,7 @@ public class MenuManager : MonoBehaviour
 
         if(timer>= 0.3f && step == 1)
         {
+            mscMenuTheme.Play();
             LeanTween.scale(title.gameObject, new Vector2(1.0f, 1.0f), 2.0f).setEase(LeanTweenType.easeOutElastic);
             step++;
             timer = 0;
@@ -94,13 +103,20 @@ public class MenuManager : MonoBehaviour
 
         if (timer >= 0.4 && step ==7)
         {
-            timer = 0;
-            SceneManager.LoadScene(1);
+            mscMenuTheme.volume -= Time.deltaTime/2;
+            if(mscMenuTheme.volume <= 0f)
+            {
+                SceneManager.LoadScene(1);
+            }
         }
 
         if(step == 10 && timer>= 0.4f)
         {
-            Application.Quit();
+            mscMenuTheme.volume -= Time.deltaTime/2;
+            if (mscMenuTheme.volume <= 0f)
+            {
+                Application.Quit();
+            }
         }
     }
 
@@ -125,18 +141,21 @@ public class MenuManager : MonoBehaviour
 
     public void PlayButton()
     {
+        sndOnClickButton.Play();
         LeanTween.scale(panel1, new Vector2(0,0),0.3f).setEase(LeanTweenType.easeOutSine);
         step++;
     }
 
     public void ExitButton()
     {
+        sndOnClickButton.Play();
         CurtainsAction();
         step = 10;
     }
 
     public void SetEasyDifficultyButton()
     {
+        sndOnClickButton.Play();
         CurtainsAction();
         difficulty = 0;
         step++;
@@ -144,6 +163,7 @@ public class MenuManager : MonoBehaviour
 
     public void SetHardDifficultyButton()
     {
+        sndOnClickButton.Play();
         CurtainsAction();
         difficulty = 1;
         step++;
