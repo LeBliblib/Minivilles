@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Game : MonoBehaviour
 {
@@ -43,6 +44,11 @@ public class Game : MonoBehaviour
 
     public static Game instance;
 
+    //Modifications Ydris
+    [Header("Pile de cartes")]
+    [SerializeField] GameObject cardsGrid;
+    List<GameObject> cardsInPile;
+
     private void Awake()
     {
         if (instance == null)
@@ -53,30 +59,28 @@ public class Game : MonoBehaviour
 
     void Start()
     {
+        //modifications Ydris
+        cardsInPile = new List<GameObject>();
+        foreach (Transform child in cardsGrid.transform)
+        {
+            cardsInPile.Add(child.gameObject);
+            child.gameObject.AddComponent<UnityEngine.UI.Button>();
+        }
+        //--------------------
+
+
         int index = 0;
-        int yIndex = 0;
-        int xIndex = 0;
+       
         foreach (CardScriptableObject c in cardsSO) 
         {
             gamePile.AddCard(c, 6);
-            Vector2 pos = new Vector2(xIndex * 1.75f - (1.75f*2f), yIndex * 2.75f + cardsSO.Count/5);
-
-            ClickableGameObject card = Instantiate(cardsPileGameObject, pos, Quaternion.identity).GetComponentInChildren<ClickableGameObject>();
-            card.ChangeSprite(c.texture);
+            cardsInPile[index].GetComponent<Image>().sprite = c.texture;
 
             int i = index;
 
-            card.toDo.AddListener(() => { BuyCard(i); });
-            Debug.Log(index);
+            cardsInPile[index].GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() => { BuyCard(i); });
 
             index++;
-            xIndex++;
-
-            if (index % 5 == 0)
-            {
-                yIndex--;
-                xIndex = 0;
-            }
         }
 
         for(int i = 0; i < 2; i++)

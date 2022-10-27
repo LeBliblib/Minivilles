@@ -28884,6 +28884,7 @@ MonoBehaviour:
   gamePile:
     cards: []
   diceGO: {fileID: 1216786690}
+  cardsGrid: {fileID: 84449048}
 --- !u!4 &1558201914
 Transform:
   m_ObjectHideFlags: 0
