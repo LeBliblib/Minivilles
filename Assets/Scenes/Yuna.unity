@@ -1025,7 +1025,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &135556771
 MonoBehaviour:
@@ -1039,7 +1039,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 833a0efb4eba19c458e191ddf75053d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  die: {fileID: 0}
+  finalSide: 0
+  diceSides: []
+  animationDice: []
 --- !u!1 &156765011
 GameObject:
   m_ObjectHideFlags: 0
@@ -1429,7 +1431,7 @@ Transform:
   - {fileID: 824493074}
   - {fileID: 318145383}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &277653635
 GameObject:
@@ -16429,6 +16431,14 @@ MonoBehaviour:
   popUpTitle: {fileID: 691694362}
   playerSelectPrefab: {fileID: 7769064806463380256, guid: f601a8285592d8b42b36a124c8f6ba09, type: 3}
   playerSelectGrid: {fileID: 6956170}
+  tradePopUp: {fileID: 0}
+  p1CardsImg: []
+  p2CardsImg: []
+  p1Trade: {fileID: 0}
+  p2Trade: {fileID: 0}
+  tradeCardSelectP1: {fileID: 0}
+  tradeCardSelectP2: {fileID: 0}
+  popUpTradeTitle: {fileID: 0}
 --- !u!114 &504767802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16509,7 +16519,7 @@ RectTransform:
   - {fileID: 622104878}
   - {fileID: 1831920516}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -22137,6 +22147,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 750846292}
   m_CullTransparentMesh: 1
+--- !u!1001 &798113466
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 137764046515209368, guid: dfac6160a22795f4b81995446e81e710, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 137764046515209368, guid: dfac6160a22795f4b81995446e81e710, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 137764046515209368, guid: dfac6160a22795f4b81995446e81e710, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -10.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 137764046515209368, guid: dfac6160a22795f4b81995446e81e710, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 137764046515209368, guid: dfac6160a22795f4b81995446e81e710, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 137764046515209368, guid: dfac6160a22795f4b81995446e81e710, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 137764046515209368, guid: dfac6160a22795f4b81995446e81e710, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 137764046515209368, guid: dfac6160a22795f4b81995446e81e710, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 137764046515209368, guid: dfac6160a22795f4b81995446e81e710, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 137764046515209368, guid: dfac6160a22795f4b81995446e81e710, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 137764046515209368, guid: dfac6160a22795f4b81995446e81e710, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 137764046515209373, guid: dfac6160a22795f4b81995446e81e710, type: 3}
+      propertyPath: m_Name
+      value: Dice
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dfac6160a22795f4b81995446e81e710, type: 3}
 --- !u!1 &824493072
 GameObject:
   m_ObjectHideFlags: 0
@@ -28211,6 +28278,11 @@ Transform:
   m_Father: {fileID: 824493074}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!1 &1216786690 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 137764046515209373, guid: dfac6160a22795f4b81995446e81e710, type: 3}
+  m_PrefabInstance: {fileID: 798113466}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1244483770
 GameObject:
   m_ObjectHideFlags: 0
@@ -28263,7 +28335,7 @@ Transform:
   - {fileID: 1736501712}
   - {fileID: 110045874}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1323439500
 GameObject:
@@ -28811,6 +28883,7 @@ MonoBehaviour:
   cardsPileGameObject: {fileID: 7316972877473393953, guid: 91bf472c259444641923089ff11ea187, type: 3}
   gamePile:
     cards: []
+  diceGO: {fileID: 1216786690}
 --- !u!4 &1558201914
 Transform:
   m_ObjectHideFlags: 0
@@ -28824,7 +28897,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1603025688
 GameObject:
@@ -34638,7 +34711,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1891076278
 BoxCollider:
@@ -44897,5 +44970,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

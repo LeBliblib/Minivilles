@@ -7,13 +7,23 @@ public class Dice : MonoBehaviour
     public static Dice Instance { get; private set; }
     public int finalSide;
 
-    public Sprite[] diceSides;// Array of dice sides sprites to load from Resources folder
-    private SpriteRenderer rend;// Reference to sprite renderer to change sprites
+    public Sprite[] diceSides;
+    public Sprite[] animationDice;
+
+    private SpriteRenderer rend;
 
     public int Roll()
     {
-        //int rand  = Random.Range(1, 7);
-        RollTheDice();
+        //RollTheDice();
+        StartCoroutine(RollTheDice());
+
+        int randomDiceSide;
+
+        randomDiceSide = Random.Range(0, 6);
+        rend.sprite = diceSides[randomDiceSide];
+
+        finalSide = randomDiceSide + 1;
+        Debug.Log(finalSide);
 
         return finalSide;
     }
@@ -28,21 +38,18 @@ public class Dice : MonoBehaviour
         rend = GetComponent<SpriteRenderer>();
     }
 
-    public void RollTheDice()
+    public IEnumerator RollTheDice()
     {
-        int randomDiceSide = 0;
-
-        finalSide = 0;
+        int randomDiceAnim = 0;
 
         for (int i = 0; i <= 20; i++)
         {
-            randomDiceSide = Random.Range(0, 6);
-            Debug.Log(diceSides.Length);
-            rend.sprite = diceSides[randomDiceSide];    
-        }
+            //Add animations
+            randomDiceAnim = Random.Range(0, 1);
+            rend.sprite = animationDice[randomDiceAnim];
 
-        finalSide = randomDiceSide + 1;
-        Debug.Log(finalSide);
+            yield return new WaitForSeconds(0.05f);
+        }
     }
 }
 

@@ -145,7 +145,6 @@ public class Game : MonoBehaviour
             case (CallbackTypes.TurnEnd):
                 turnEndCallbacks++;
                 break;
-
         }
     }
 
@@ -158,7 +157,6 @@ public class Game : MonoBehaviour
         for (int i = 0; i < diceNumber; i++)
         {
             //Renvoie un int avec la valeur du D roll
-            //rolls[i] = gameDice.Dice.Roll();
             rolls[i] = diceGO.GetComponent<Dice>().Roll();
             rollsSum += rolls[i];
         }
