@@ -23,10 +23,10 @@ public class Player
         Game.instance.ui.RefreshCoins(coins, PlayerID);
 
         //Ajouter cartes de base
-        monuments.Add(new TrainStation("Gare", "Vous pouvez lancer deux dès.", 4, playerID));
-        monuments.Add(new Mall("Centre commercial", "Vos établissements de type Restaurant et Food rapportent une pièce de plus.", 10, playerID));
-        monuments.Add(new Park("Parc d'attractions", "Si votre jet de dès est un double, rejouez un tour après celui-ci.", 16, playerID));
-        monuments.Add(new Radio("Tour radio", "Une fois par tour, vous pouvez choisir de relancer vos dès.", 22, playerID));
+        monuments.Add(new TrainStation("Gare", "Vous pouvez lancer deux dès.", 4,this));
+        monuments.Add(new Mall("Centre commercial", "Vos établissements de type Restaurant et Food rapportent une pièce de plus.", 10, this));
+        monuments.Add(new Park("Parc d'attractions", "Si votre jet de dès est un double, rejouez un tour après celui-ci.", 16, this));
+        monuments.Add(new Radio("Tour radio", "Une fois par tour, vous pouvez choisir de relancer vos dès.", 22,this));
 
 
     }
@@ -90,4 +90,5 @@ public class Player
 
         return false;
     }
+
 }

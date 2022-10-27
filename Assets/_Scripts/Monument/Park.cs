@@ -6,7 +6,7 @@ public class Park : Monument
 {
     bool activeForNextTurn;
 
-    public Park(string name, string desc, int cost, int playerID) : base(name, desc, cost, playerID) { }
+    public Park(string name, string desc, int cost, Player player) : base(name, desc, cost, player) { }
 
     public override void Buy()
     {
@@ -18,7 +18,7 @@ public class Park : Monument
 
     public void CheckForActivation(int[] rolls, int id)
     {
-        if (id != PlayerID) return;
+        if (id != player.PlayerID) return;
 
         int lastRoll = 0;
 
@@ -40,7 +40,7 @@ public class Park : Monument
     {
         if (activeForNextTurn)
         {
-            Game.instance.SetCurrentPlayerID(PlayerID);
+            Game.instance.SetCurrentPlayerID(player.PlayerID);
             activeForNextTurn = false;
         }
     }

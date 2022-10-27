@@ -16,11 +16,27 @@ public class TradeEvent : CardEvent
     public override void Activate(Player player, Card card)
     {
         Game game = Game.instance;
+        if (!player.isIA)
+        {
+            UIManager.PopUpCallback callback = ValidationCallback;
 
-        UIManager.PopUpCallback callback = ValidationCallback;
-
-        game.ui.ShowChoosePopUp("Echange", "Voulez-vous échanger une carte avec un joueur ?", callback);
-        game.StartCoroutine(WaitForValidation(player, card));
+            game.ui.ShowChoosePopUp("Echange", "Voulez-vous échanger une carte avec un joueur ?", callback);
+            game.StartCoroutine(WaitForValidation(player, card));
+        }
+        else
+        {
+            IA ia = (IA)player;
+            Card iACard = ia.CheckBestCard(ia.cards);
+            List<Card> allPlayerCards = new List<Card>();
+            foreach (Player P in Game.instance.GetAllPlayers())
+            {
+                if (P.PlayerID != player.PlayerID)
+                    allPlayerCards.Add(ia.CheckBestCard(P.cards));
+            }
+            allPlayerCards.Add(iACard);
+            Card bestCard = ia.CheckBestCard(allPlayerCards);
+            //if()
+        }
     }
 
     int validation = 0;
@@ -66,11 +82,11 @@ public class TradeEvent : CardEvent
         targetedPlayer = game.GetPlayer(target);
 
         target = -1;
-
         UIManager.PopUpTradeCallback callback = TradingCallback;
 
         game.ui.ShowTradePopUp("Echange", player.PlayerID, targetedPlayer.PlayerID, callback);
         game.StartCoroutine(WaitForTrade(player, card));
+
     }
     public void TargettingCallback(int id)
     {

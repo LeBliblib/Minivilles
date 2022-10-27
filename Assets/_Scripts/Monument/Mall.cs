@@ -6,7 +6,7 @@ public class Mall : Monument
 {
 
 
-    public Mall(string name, string desc, int cost, int playerID) : base(name, desc, cost, playerID) { }
+    public Mall(string name, string desc, int cost, Player player) : base(name, desc, cost, player) { }
 
     public override void Buy()
     {
@@ -19,14 +19,14 @@ public class Mall : Monument
     public void CheckForActivation(Card card,int left)
     {
         
-        if (card.PlayerID != PlayerID) return;
+        if (card.PlayerID != player.PlayerID) return;
 
         UpdateCard(card);
     }
 
     public override void Activate()
     {
-        Player player = Game.instance.GetPlayer(PlayerID);
+        Player player = Game.instance.GetPlayer(this.player.PlayerID);
 
         foreach(Card card in player.cards)
         {

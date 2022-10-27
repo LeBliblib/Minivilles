@@ -18,24 +18,24 @@ public class IA : Player
         List<int> indexes = new List<int>();
         int priority = -1;
         int rand = Random.Range(0, 20);
-        if(rand < 15)
+        if (rand < 15)
             priority = 1;
-        else if(rand < 19 && rand >= 15)
+        else if (rand < 19 && rand >= 15)
             priority = 2;
-        else if(rand == 19)
+        else if (rand == 19)
             priority = 3;
         for (int i = 0; i < strat.priority.GetLength(1); i++)
             if (strat.priority[0, i] == priority)
                 indexes.Add(i);
-        Game.instance.BuyCard(indexes[Random.Range(0,indexes.Count)]);
+        Game.instance.BuyCard(indexes[Random.Range(0, indexes.Count)]);
     }
 
-    public void LowerStartegie(Card card,int left)
+    public void LowerStartegie(Card card, int left)
     {
         int index = -1;
-        if(left == 0)
+        if (left == 0)
             index = Game.instance.GetIndexSO(card.values);
-        if (strat.priority[0,index] <= 3)
+        if (strat.priority[0, index] <= 3)
         {
             int priority = strat.priority[0, index];
             for (int i = 0; i < strat.priority.Length; i++)
@@ -45,6 +45,7 @@ public class IA : Player
             }
         }
     }
+
     public int TradeIAChoice()
     {
         return 0;
@@ -53,9 +54,50 @@ public class IA : Player
     {
         return -1;
     }
+
     public void CheckRadioTower()
     {
 
+    }
+    public bool EstimateResult(int roll)
+    {
+        int result = 0;
+        int allPlayerResult = 0;
+        foreach (Player P in Game.instance.GetAllPlayers())
+        {
+            foreach (Card C in P.cards)
+            {
+                if (C.values.minValue >= roll && C.values.maxValue <= roll)
+                {
+                    if (PlayerID == P.PlayerID)
+                    {
+                        if (C.values.Color == CardColor.Blue || C.values.Color == CardColor.Green || C.values.Color == CardColor.Purple)
+                            result++;
+                    }
+                    else
+                    {
+                        if (C.values.Color == CardColor.Blue || C.values.Color == CardColor.Red)
+                            allPlayerResult++;
+                    }
+                }
+            }
+        }
+        allPlayerResult /= (Game.instance.GetAllPlayers().Count-1);
+        return result >= allPlayerResult ? false : true;
+    }
+    public Card CheckBestCard(List<Card> cards)
+    {
+        Card thisCard = null;
+        int best = 10;
+        foreach(Card C in cards)
+        {
+            if (strat.priority[0,Game.instance.GetIndexSO(C.values)] <= best)
+            {
+                best = Game.instance.GetIndexSO(C.values);
+                thisCard = C;
+            }
+        }
+        return thisCard;
     }
     public void CheckMonumentToBuy()
     {
