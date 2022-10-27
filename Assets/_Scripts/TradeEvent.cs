@@ -35,7 +35,13 @@ public class TradeEvent : CardEvent
             }
             allPlayerCards.Add(iACard);
             Card bestCard = ia.CheckBestCard(allPlayerCards);
-            //if()
+            Card worthCard = ia.CheckWorthCard(ia.cards);
+            if(bestCard.values != iACard.values)
+            {
+                targetedPlayer = Game.instance.GetPlayer(bestCard.PlayerID);
+                TradeResolution(player,bestCard,worthCard);
+            }
+            card.SetFinished();
         }
     }
 
@@ -103,8 +109,25 @@ public class TradeEvent : CardEvent
             yield return null;
         }
 
-        Card p1Card = player.cards[p1Choice];
-        Card p2Card = targetedPlayer.cards[p2Choice];
+        TradeResolution(player);
+
+        game.ui.HidePopUp();
+        card.SetFinished();
+    }
+    public void TradeResolution(Player player, Card card1 = null, Card card2 = null)
+    {
+        Game game = Game.instance;
+        Card p1Card, p2Card;
+
+        if (card1 ==null)
+            p1Card = player.cards[p1Choice];
+        else
+            p1Card = card1;
+
+        if (card2 == null)
+            p2Card = targetedPlayer.cards[p2Choice];
+        else
+            p2Card = card2;
 
         game.ui.DeletePlayerCard(player.PlayerID, p1Choice);
         game.ui.DeletePlayerCard(targetedPlayer.PlayerID, p2Choice);
@@ -118,14 +141,9 @@ public class TradeEvent : CardEvent
         targetedPlayer.cards.Add(p1Card);
         game.ui.GiveCardToPlayer(player.PlayerID, p2Card.values);
         game.ui.GiveCardToPlayer(targetedPlayer.PlayerID, p1Card.values);
-
         p1Choice = -1;
         p2Choice = -1;
-
-        game.ui.HidePopUp();
-        card.SetFinished();
     }
-
     public void TradingCallback(int p1, int p2)
     {
         p1Choice = p1;

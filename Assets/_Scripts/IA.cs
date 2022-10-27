@@ -12,9 +12,10 @@ public class IA : Player
         Game.instance.onCardBuy += LowerStartegie;
         Game.instance.onBuyStart += ChoseCard;
     }
-    public void ChoseCard()
+    public void ChoseCard(int playerId)
     {
         //Choisit la carte en fct de la priorité de la strategie definit
+        if(this.PlayerID == playerId) { return; }
         List<int> indexes = new List<int>();
         int priority = -1;
         int rand = Random.Range(0, 20);
@@ -35,6 +36,8 @@ public class IA : Player
         int index = -1;
         if (left == 0)
             index = Game.instance.GetIndexSO(card.values);
+        if(index < 0)
+            return;
         if (strat.priority[0, index] <= 3)
         {
             int priority = strat.priority[0, index];
@@ -92,6 +95,20 @@ public class IA : Player
         foreach(Card C in cards)
         {
             if (strat.priority[0,Game.instance.GetIndexSO(C.values)] <= best)
+            {
+                best = Game.instance.GetIndexSO(C.values);
+                thisCard = C;
+            }
+        }
+        return thisCard;
+    }    
+    public Card CheckWorthCard(List<Card> cards)
+    {
+        Card thisCard = null;
+        int best = 10;
+        foreach(Card C in cards)
+        {
+            if (strat.priority[0,Game.instance.GetIndexSO(C.values)] >= best)
             {
                 best = Game.instance.GetIndexSO(C.values);
                 thisCard = C;
