@@ -9,7 +9,7 @@ using UnityEditor.UIElements;
 
 public class MenuManager : MonoBehaviour
 {
-    public static int difficulty = 0;
+    public static sbyte difficulty = 0;
 
     [Header("Visual")]
     [SerializeField] Image title;
