@@ -24,7 +24,6 @@ public class MenuManager : MonoBehaviour
     [SerializeField] AudioSource sndOnClickButton;
     [SerializeField] AudioSource sndLaunch;
 
-
     [Header("Events")]
     [SerializeField] UnityEvent curtainsAction;
 
