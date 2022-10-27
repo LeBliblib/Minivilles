@@ -12,7 +12,8 @@ public class Game : MonoBehaviour
 
     private List<Player> players = new List<Player>();
     public Pile gamePile = new Pile();
-    private Dice gameDice = new Dice();
+
+    public GameObject diceGO;
 
     int currentTurnPlayerID;
     bool canBuy;
@@ -157,7 +158,8 @@ public class Game : MonoBehaviour
         for (int i = 0; i < diceNumber; i++)
         {
             //Renvoie un int avec la valeur du D roll
-            rolls[i] = gameDice.Roll();
+            //rolls[i] = gameDice.Dice.Roll();
+            rolls[i] = diceGO.GetComponent<Dice>().Roll();
             rollsSum += rolls[i];
         }
 
