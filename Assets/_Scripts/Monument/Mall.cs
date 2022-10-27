@@ -16,8 +16,9 @@ public class Mall : Monument
         Activate();
     }
 
-    public void CheckForActivation(Card card)
+    public void CheckForActivation(Card card,int left)
     {
+        
         if (card.PlayerID != PlayerID) return;
 
         UpdateCard(card);

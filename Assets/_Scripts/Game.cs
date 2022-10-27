@@ -18,7 +18,7 @@ public class Game : MonoBehaviour
     bool canBuy;
 
     int dicesNumber;
-
+    //Player
     public delegate void OnTurnStart(int turnPlayerID);
     public event OnTurnStart onTurnStart;
 
@@ -26,11 +26,14 @@ public class Game : MonoBehaviour
     public event OnDiceRoll onDiceRoll;
     Coroutine diceCoroutine;
 
-    public delegate void OnCardBuy(Card card);
+    public delegate void OnCardBuy(Card card, int left);
     public event OnCardBuy onCardBuy;
 
     public delegate void OnTurnEnd(int turnPlayerID);
     public event OnTurnEnd onTurnEnd;
+    //IA
+    public delegate void OnBuyStart();
+    public event OnBuyStart onBuyStart;
 
     int turnStartCallbacks = 0;
     int diceRollCallbacks = 0;
@@ -77,7 +80,7 @@ public class Game : MonoBehaviour
 
         for(int i = 0; i < 2; i++)
         {
-            Player p = new Player("jean " + i, i);
+            Player p = new Player("jean " + i, i,false);
             players.Add(p);
         }
 
@@ -242,7 +245,7 @@ public class Game : MonoBehaviour
         ui.GiveCardToPlayer(currentTurnPlayerID, pile.cardSO);
 
         canBuy = false;
-        onCardBuy?.Invoke(card);
+        onCardBuy?.Invoke(card,pile.nb);
 
         Debug.Log("Achat : " + card.values.Name + " Money money : " + player.coins + " Player : " + currentTurnPlayerID);
         EndTurn();
@@ -303,6 +306,16 @@ public class Game : MonoBehaviour
     public void SetCurrentPlayerID(int value)
     {
         currentTurnPlayerID = value;
+    }
+
+    public List<CardScriptableObject> GetSOList()
+    {
+        return cardsSO;
+    }
+
+    public int GetIndexSO(CardScriptableObject card)
+    {
+        return cardsSO.IndexOf(card);
     }
     #endregion
 }

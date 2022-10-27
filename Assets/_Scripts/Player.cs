@@ -12,11 +12,13 @@ public class Player
 
     public int PlayerID;
 
-    public Player(string name, int playerID)
+    public bool isIA;
+
+    public Player(string name, int playerID, bool isIA)
     {
         this.name = name;
         coins = 250;
-
+        this.isIA = isIA;
         PlayerID = playerID;
         Game.instance.ui.RefreshCoins(coins, PlayerID);
 
