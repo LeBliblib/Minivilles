@@ -34,7 +34,7 @@ public class Game : MonoBehaviour
     public delegate void OnTurnEnd(int turnPlayerID);
     public event OnTurnEnd onTurnEnd;
     //IA
-    public delegate void OnBuyStart();
+    public delegate void OnBuyStart(int turnPlayerID);
     public event OnBuyStart onBuyStart;
 
     int turnStartCallbacks = 0;
@@ -70,8 +70,8 @@ public class Game : MonoBehaviour
 
 
         int index = 0;
-       
-        foreach (CardScriptableObject c in cardsSO) 
+
+        foreach (CardScriptableObject c in cardsSO)
         {
             gamePile.AddCard(c, 6);
             cardsInPile[index].GetComponent<Image>().sprite = c.texture;
@@ -83,11 +83,10 @@ public class Game : MonoBehaviour
             index++;
         }
 
-        for(int i = 0; i < 2; i++)
-        {
-            Player p = new Player("jean " + i, i,false);
-            players.Add(p);
-        }
+        Player p = new Player("jean " + 0, 0, false);
+        players.Add(p);
+        IA ia = new IA("jean" + 1, 1, true);
+        players.Add(ia);
 
         currentTurnPlayerID = 0;
 
@@ -118,7 +117,7 @@ public class Game : MonoBehaviour
 
     IEnumerator WaitForTurnStartEvent(int callbacksNb)
     {
-        while(turnStartCallbacks < callbacksNb)
+        while (turnStartCallbacks < callbacksNb)
         {
             yield return null;
         }
@@ -135,7 +134,7 @@ public class Game : MonoBehaviour
 
     public void SetCallback(CallbackTypes type)
     {
-        switch(type)
+        switch (type)
         {
             case (CallbackTypes.TurnStart):
                 turnStartCallbacks++;
@@ -203,7 +202,7 @@ public class Game : MonoBehaviour
     int playerDoneActivation = 0;
     public void CheckForCardsActivation(int rollsSum)
     {
-        foreach(Player p in players)
+        foreach (Player p in players)
         {
             p.CheckForCards(rollsSum);
         }
@@ -218,7 +217,7 @@ public class Game : MonoBehaviour
 
     public IEnumerator StartBuySequence()
     {
-        while(playerDoneActivation < players.Count)
+        while (playerDoneActivation < players.Count)
         {
             yield return null;
         }
@@ -226,6 +225,7 @@ public class Game : MonoBehaviour
         Debug.Log("Can buy : " + playerDoneActivation + " " + players.Count);
         playerDoneActivation = 0;
         canBuy = true;
+        onBuyStart?.Invoke(currentTurnPlayerID);
     }
 
     public void BuyCard(int cardID)
@@ -249,7 +249,7 @@ public class Game : MonoBehaviour
         ui.GiveCardToPlayer(currentTurnPlayerID, pile.cardSO);
 
         canBuy = false;
-        onCardBuy?.Invoke(card,pile.nb);
+        onCardBuy?.Invoke(card, pile.nb);
 
         Debug.Log("Achat : " + card.values.Name + " Money money : " + player.coins + " Player : " + currentTurnPlayerID);
         EndTurn();
