@@ -17721,6 +17721,8 @@ MonoBehaviour:
   tradeCardSelectP1: {fileID: 264037211}
   tradeCardSelectP2: {fileID: 1086212650}
   popUpTradeTitle: {fileID: 274987609}
+  winPopup: {fileID: 1485162623}
+  losePopup: {fileID: 1261148805}
 --- !u!114 &504767802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31890,7 +31892,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1261148806
 RectTransform:
   m_ObjectHideFlags: 0
@@ -33001,7 +33003,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1485162624
 RectTransform:
   m_ObjectHideFlags: 0

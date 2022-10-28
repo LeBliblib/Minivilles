@@ -39,6 +39,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] UIElement p1Trade, p2Trade;
     [SerializeField] GameObject tradeCardSelectP1, tradeCardSelectP2;
     [SerializeField] TextMeshProUGUI popUpTradeTitle;
+
+    [Header("PopUp Win & Loose")]
+    [SerializeField] GameObject winPopup;
+    [SerializeField] GameObject losePopup;
+
     int p1Choice = -1;
     int p2Choice = -1;
 
@@ -59,6 +64,9 @@ public class UIManager : MonoBehaviour
 
         popUp.transform.localScale = Vector3.zero;
         tradePopUp.transform.localScale = Vector3.zero;
+
+        winPopup.SetActive(false);
+        losePopup.SetActive(false);
     }
 
     private void Start()
