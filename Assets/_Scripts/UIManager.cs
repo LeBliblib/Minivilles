@@ -98,11 +98,13 @@ public class UIManager : MonoBehaviour
 
     public void RefreshCoins(int value, int id)
     {
+
         coinsText[id].text = "" + value;
     }
 
     public void GiveCardToPlayer(int playerID, CardScriptableObject cardSO)
     {
+        Debug.Log("current " + playerID);
         Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         CardGameObject card = Instantiate(cardPrefab, pos, Quaternion.identity);
 

@@ -106,8 +106,10 @@ public class Game : MonoBehaviour
         onTurnStart?.Invoke(currentTurnPlayerID);
 
         int listeners = 0;
-
-        if (onTurnStart?.GetInvocationList() != null) listeners = onTurnStart.GetInvocationList().Length;
+        if (onTurnStart?.GetInvocationList() != null)
+        {
+            listeners = onTurnStart.GetInvocationList().Length;
+        }
 
         if (listeners <= 0)
             RollDice(dicesNumber);
@@ -168,7 +170,7 @@ public class Game : MonoBehaviour
         ui.ShowDiceRoll(rollsSum);
 
         onDiceRoll?.Invoke(rolls, currentTurnPlayerID);
-
+        Debug.Log("Dice roll");
         int listeners = 0;
 
         if (onDiceRoll?.GetInvocationList() != null) listeners = onDiceRoll.GetInvocationList().Length;
@@ -181,11 +183,12 @@ public class Game : MonoBehaviour
 
     IEnumerator WaitForRollDiceEvent(int callbacksNb, int rollsSum)
     {
+        Debug.Log("Start wait dice roll" + callbacksNb +"||"+ diceRollCallbacks);
         while (diceRollCallbacks < callbacksNb)
         {
             yield return null;
         }
-
+        Debug.Log("Stop wait dice roll");
         diceRollCallbacks = 0;
 
         CheckForCardsActivation(rollsSum);
@@ -246,6 +249,7 @@ public class Game : MonoBehaviour
 
         player.ChangeCoins(-card.values.Cost);
 
+        Debug.Log("current " + currentTurnPlayerID);
         ui.GiveCardToPlayer(currentTurnPlayerID, pile.cardSO);
 
         canBuy = false;
@@ -258,8 +262,9 @@ public class Game : MonoBehaviour
     public void BuyMonument(int monumentID)
     {
         if (!canBuy) return;
-
+        Debug.Log("currentplayer" + currentTurnPlayerID);
         Player player = players[currentTurnPlayerID];
+        Debug.Log("currentmonument" + monumentID);
         Monument monument = player.monuments[monumentID];
 
         if (monument.isActive) return;
@@ -268,6 +273,7 @@ public class Game : MonoBehaviour
         player.ChangeCoins(-monument.Cost);
         monument.Buy();
 
+        Debug.Log("monplayerIP"+monument.player.PlayerID);
         ui.BuyMonument(currentTurnPlayerID, monumentID);
 
         canBuy = false;
@@ -284,10 +290,10 @@ public class Game : MonoBehaviour
 
     public void EndTurn()
     {
+        onTurnEnd?.Invoke(currentTurnPlayerID);
+
         currentTurnPlayerID++;
         if (currentTurnPlayerID >= players.Count) currentTurnPlayerID = 0;
-
-        onTurnEnd?.Invoke(currentTurnPlayerID);
 
         StartTurn();
     }

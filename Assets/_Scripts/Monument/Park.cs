@@ -18,28 +18,35 @@ public class Park : Monument
 
     public void CheckForActivation(int[] rolls, int id)
     {
-        if (id != player.PlayerID) return;
-
+        if (id != player.PlayerID)
+        {
+            Game.instance.SetCallback(CallbackTypes.DiceRoll);
+            return;
+        }
+        Debug.Log("Dice roll Park");
         int lastRoll = 0;
 
-        for(int i = 0; i < rolls.Length; i++)
+        for (int i = 0; i < rolls.Length; i++)
         {
             if (lastRoll == rolls[i])
             {
                 activeForNextTurn = true;
+                Game.instance.SetCallback(CallbackTypes.DiceRoll);
+                Debug.Log("Test Park");
                 return;
             }
 
             lastRoll = rolls[i];
         }
-
         Game.instance.SetCallback(CallbackTypes.DiceRoll);
     }
 
     public void SetTurn(int id)
     {
+        Debug.Log("End Turn Park");
         if (activeForNextTurn)
         {
+            Debug.Log("efer");
             Game.instance.SetCurrentPlayerID(player.PlayerID);
             activeForNextTurn = false;
         }

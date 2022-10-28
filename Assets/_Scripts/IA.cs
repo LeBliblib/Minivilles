@@ -15,7 +15,7 @@ public class IA : Player
     public void ChoseCard(int playerId)
     {
         //Choisit la carte en fct de la priorité de la strategie definit
-        if(this.PlayerID == playerId) { return; }
+        if(this.PlayerID != playerId) { return; }
         List<int> indexes = new List<int>();
         int priority = -1;
         int rand = Random.Range(0, 20);

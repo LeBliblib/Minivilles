@@ -7,7 +7,7 @@ public abstract class Monument
     public string Name;
     public string Desc;
     public int Cost;
-    protected Player player;
+    public Player player;
 
     public bool isActive;
 
