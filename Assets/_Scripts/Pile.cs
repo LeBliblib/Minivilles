@@ -36,7 +36,7 @@ public class Pile
 }
 
 [Serializable]
-public struct PileCards
+public class PileCards
 {
     public CardScriptableObject cardSO;
     public int nb;

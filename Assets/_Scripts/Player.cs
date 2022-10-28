@@ -17,7 +17,7 @@ public class Player
     public Player(string name, int playerID, bool isIA)
     {
         this.name = name;
-        this.coins = 250;
+        this.coins = 3;
         this.isIA = isIA;
         PlayerID = playerID;
         Game.instance.ui.RefreshCoins(coins, PlayerID);

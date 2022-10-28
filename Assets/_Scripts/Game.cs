@@ -87,6 +87,14 @@ public class Game : MonoBehaviour
         players.Add(p);
         IA ia = new IA("jean" + 1, 1, true);
         players.Add(ia);
+        foreach(Player P in players)
+        {
+            P.AddCard(new Card(P.PlayerID, cardsSO[0]));
+            ui.GiveCardToPlayer(P.PlayerID, cardsSO[0]);
+            P.AddCard(new Card(P.PlayerID, cardsSO[2]));
+            ui.GiveCardToPlayer(P.PlayerID, cardsSO[2]);
+        }
+
 
         currentTurnPlayerID = 0;
 
@@ -252,7 +260,7 @@ public class Game : MonoBehaviour
         Debug.Log("current " + currentTurnPlayerID);
         ui.GiveCardToPlayer(currentTurnPlayerID, pile.cardSO);
 
-        pile.nb--;
+        //pile.nb--;
         canBuy = false;
         onCardBuy?.Invoke(card, pile.nb);
 
@@ -322,6 +330,10 @@ public class Game : MonoBehaviour
     public List<CardScriptableObject> GetSOList()
     {
         return cardsSO;
+    }    
+    public CardScriptableObject GetSO(int index)
+    {
+        return cardsSO[index];
     }
 
     public int GetIndexSO(CardScriptableObject card)
