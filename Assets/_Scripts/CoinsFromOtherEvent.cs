@@ -63,10 +63,19 @@ public class CoinsFromOtherEvent : CardEvent
         }
         else
         {
+            if (!player.isIA)
+            {
             UIManager.PopUpSelectCallback callback = TargettingCallback;
 
             game.ui.ShowSelectPopUp("Selection", player.PlayerID, callback);
             game.StartCoroutine(WaitForTarget(player,card));
+            }
+            else
+            {
+                IA ia = (IA)player;
+                Player target = ia.CheckWealthiestPlayer();
+                ActionResult(player, target, card);
+            }
         }
     }
 
@@ -81,24 +90,29 @@ public class CoinsFromOtherEvent : CardEvent
         }
 
         Player p2 = game.GetPlayer(target);
+        ActionResult(player, p2, card);
 
-        if (p2.coins >= coinsNumber)
-        {
-            p2.ChangeCoins(-coinsNumber);
-            player.ChangeCoins(coinsNumber);
-        }
-        else
-        {
-            p2.ChangeCoins(-p2.coins);
-            player.ChangeCoins(p2.coins);
-        }
-
-        card.SetFinished();
         target = -1;
     }
 
     public void TargettingCallback(int id)
     {
         target = id;
+    }
+
+    public void ActionResult(Player player,Player target, Card card)
+    {
+        if (target.coins >= coinsNumber)
+        {
+            target.ChangeCoins(-coinsNumber);
+            player.ChangeCoins(coinsNumber);
+        }
+        else
+        {
+            target.ChangeCoins(-target.coins);
+            player.ChangeCoins(target.coins);
+        }
+
+        card.SetFinished();
     }
 }

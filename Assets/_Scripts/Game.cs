@@ -252,6 +252,7 @@ public class Game : MonoBehaviour
         Debug.Log("current " + currentTurnPlayerID);
         ui.GiveCardToPlayer(currentTurnPlayerID, pile.cardSO);
 
+        pile.nb--;
         canBuy = false;
         onCardBuy?.Invoke(card, pile.nb);
 
@@ -326,6 +327,10 @@ public class Game : MonoBehaviour
     public int GetIndexSO(CardScriptableObject card)
     {
         return cardsSO.IndexOf(card);
+    }    
+    public int GetCardCost(int index)
+    {
+        return cardsSO[index].Cost;
     }
     #endregion
 }

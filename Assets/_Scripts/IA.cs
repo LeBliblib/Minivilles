@@ -6,15 +6,21 @@ using UnityEngine;
 public class IA : Player
 {
     public Strategie strat;
+    int nMonument;
+    int gareOwn;
     public IA(string name, int playerID, bool isIA) : base(name, playerID, isIA)
     {
         strat = CreateStrategie();
         Game.instance.onCardBuy += LowerStartegie;
         Game.instance.onBuyStart += ChoseCard;
+        nMonument = 0;
+        gareOwn = 0;
     }
     public void ChoseCard(int playerId)
     {
         //Choisit la carte en fct de la priorité de la strategie definit
+        Game game = Game.instance;
+            
         if(this.PlayerID != playerId) { return; }
         List<int> indexes = new List<int>();
         int priority = -1;
@@ -26,9 +32,14 @@ public class IA : Player
         else if (rand == 19)
             priority = 3;
         for (int i = 0; i < strat.priority.GetLength(1); i++)
-            if (strat.priority[0, i] == priority)
+            if (strat.priority[gareOwn, i] == priority)
                 indexes.Add(i);
-        Game.instance.BuyCard(indexes[Random.Range(0, indexes.Count)]);
+        int chooseCard = Random.Range(0, indexes.Count);
+        int cost = game.GetCardCost(chooseCard);
+        if (cost <= this.coins)
+            game.BuyCard(indexes[chooseCard]);
+        else
+            game.DontBuy();
     }
 
     public void LowerStartegie(Card card, int left)
@@ -38,30 +49,17 @@ public class IA : Player
             index = Game.instance.GetIndexSO(card.values);
         if(index < 0)
             return;
-        if (strat.priority[0, index] <= 3)
+        if (strat.priority[gareOwn, index] <= 3)
         {
-            int priority = strat.priority[0, index];
+            int priority = strat.priority[gareOwn, index];
             for (int i = 0; i < strat.priority.Length; i++)
             {
-                if (strat.priority[0, i] >= priority)
-                    strat.priority[0, i]--;
+                if (strat.priority[gareOwn, i] >= priority)
+                    strat.priority[gareOwn, i]--;
             }
         }
     }
 
-    public int TradeIAChoice()
-    {
-        return 0;
-    }
-    public int CoinsFromOtherIAChoice()
-    {
-        return -1;
-    }
-
-    public void CheckRadioTower()
-    {
-
-    }
     public bool EstimateResult(int roll)
     {
         int result = 0;
@@ -116,10 +114,34 @@ public class IA : Player
         }
         return thisCard;
     }
-    public void CheckMonumentToBuy()
+    public Player CheckWealthiestPlayer()
     {
-
+        List<Player> players = Game.instance.GetAllPlayers();
+        Player thisPlayer = null;
+        foreach(Player P in players)
+        {
+            if (P.coins > thisPlayer.coins && P != this)
+                thisPlayer = P;
+        }
+        return thisPlayer;
     }
+   /* public void CheckMonumentToBuy()
+    {
+        switch (nMonument)
+        {
+            case 0:
+                if(cards.Contains())
+                break;            
+            case 1:
+                break;           
+            case 2:
+                break;            
+            case 3:
+                break;            
+            default:
+                break;
+        }
+    }*/
     public void Destroy()
     {
 
