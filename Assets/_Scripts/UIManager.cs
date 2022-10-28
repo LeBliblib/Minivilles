@@ -65,8 +65,10 @@ public class UIManager : MonoBehaviour
         popUp.transform.localScale = Vector3.zero;
         tradePopUp.transform.localScale = Vector3.zero;
 
-        winPopup.SetActive(false);
-        losePopup.SetActive(false);
+        winPopup.transform.GetChild(1).localScale = new Vector2(0, 0);
+        winPopup.transform.GetChild(0).gameObject.SetActive(false);
+        losePopup.transform.GetChild(1).localScale = new Vector2(0, 0);
+        losePopup.transform.GetChild(0).gameObject.SetActive(false);
     }
 
     private void Start()
@@ -86,6 +88,14 @@ public class UIManager : MonoBehaviour
             });
 
             playerSelects.Add(elem);
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown("space"))
+        {
+            LaunchLoosePanel();
         }
     }
 
@@ -311,5 +321,17 @@ public class UIManager : MonoBehaviour
             p1Choice = -1;
             p2Choice = -1;
         }
+    }
+
+    public void LaunchWinPanel()
+    {
+        winPopup.transform.GetChild(0).gameObject.SetActive(true);
+        LeanTween.scale(winPopup.transform.GetChild(1).gameObject, new Vector2(3, 3), 2.0f).setEase(LeanTweenType.easeOutElastic);
+    }
+
+    public void LaunchLoosePanel()
+    {
+        losePopup.transform.GetChild(0).gameObject.SetActive(true);
+        LeanTween.scale(losePopup.transform.GetChild(1).gameObject, new Vector2(3, 3), 2.0f).setEase(LeanTweenType.easeOutElastic);
     }
 }
