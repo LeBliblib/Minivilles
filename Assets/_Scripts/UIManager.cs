@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -40,9 +41,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject tradeCardSelectP1, tradeCardSelectP2;
     [SerializeField] TextMeshProUGUI popUpTradeTitle;
 
-    [Header("PopUp Win & Loose")]
+    [Header("Starting, Ending and PopUp Win&Loose")]
     [SerializeField] GameObject winPopup;
     [SerializeField] GameObject losePopup;
+    [SerializeField] GameObject retryButton;
+    [SerializeField] Image[] curtains;
+    bool areCurtainsOpened;
+    float timer;
+    sbyte step;
 
     int p1Choice = -1;
     int p2Choice = -1;
@@ -69,6 +75,15 @@ public class UIManager : MonoBehaviour
         winPopup.transform.GetChild(0).gameObject.SetActive(false);
         losePopup.transform.GetChild(1).localScale = new Vector2(0, 0);
         losePopup.transform.GetChild(0).gameObject.SetActive(false);
+        retryButton.transform.localScale = new Vector2(0, 0);
+
+        curtains[0].transform.position = new Vector2(Screen.width / 2, Screen.height);
+        curtains[0].rectTransform.sizeDelta = new Vector2(Screen.width, Screen.height / 2);
+        curtains[1].transform.position = new Vector2(Screen.width / 2, 0);
+        curtains[1].rectTransform.sizeDelta = new Vector2(Screen.width, Screen.height / 2);
+        areCurtainsOpened = false;
+        timer = 0;
+        step = 0;
     }
 
     private void Start()
@@ -93,6 +108,14 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
+        if (!areCurtainsOpened && step ==0) { timer += Time.deltaTime; }
+        if(!areCurtainsOpened && timer >= 0.5f)
+        {
+            CurtainsAction();
+            timer = 0;
+            step++;
+        }
+
         if (Input.GetKeyDown("space"))
         {
             LaunchLoosePanel();
@@ -326,12 +349,48 @@ public class UIManager : MonoBehaviour
     public void LaunchWinPanel()
     {
         winPopup.transform.GetChild(0).gameObject.SetActive(true);
-        LeanTween.scale(winPopup.transform.GetChild(1).gameObject, new Vector2(3, 3), 2.0f).setEase(LeanTweenType.easeOutElastic);
+        LeanTween.scale(winPopup.transform.GetChild(1).gameObject, new Vector2(3, 3), 1.5f).setEase(LeanTweenType.easeOutElastic);
+        StartCoroutine(RetryButtonPop());
     }
 
     public void LaunchLoosePanel()
     {
         losePopup.transform.GetChild(0).gameObject.SetActive(true);
-        LeanTween.scale(losePopup.transform.GetChild(1).gameObject, new Vector2(3, 3), 2.0f).setEase(LeanTweenType.easeOutElastic);
+        LeanTween.scale(losePopup.transform.GetChild(1).gameObject, new Vector2(3, 3), 1.5f).setEase(LeanTweenType.easeOutElastic);
+        StartCoroutine(RetryButtonPop());
+    }
+
+    IEnumerator RetryButtonPop()
+    {
+        yield return new WaitForSeconds(1.0f);
+        LeanTween.scale(retryButton, new Vector2(1, 1), 0.5f).setEase(LeanTweenType.easeOutElastic);
+    }
+
+    public void CurtainsAction()
+    {
+        if (!areCurtainsOpened)
+        {
+            LeanTween.scaleY(curtains[0].gameObject, 0, 0.3f).setEase(LeanTweenType.easeOutSine);
+            LeanTween.scaleY(curtains[1].gameObject, 0, 0.3f).setEase(LeanTweenType.easeOutSine);
+            areCurtainsOpened = true;
+        }
+        else
+        {
+            LeanTween.scaleY(curtains[0].gameObject, 1, 0.3f).setEase(LeanTweenType.easeOutSine);
+            LeanTween.scaleY(curtains[1].gameObject, 1, 0.3f).setEase(LeanTweenType.easeOutSine);
+        }
+    }
+
+    public void RetryButtonClicked()
+    {
+        StartCoroutine(RetryButtonAction());
+    }
+
+    IEnumerator RetryButtonAction()
+    {
+        yield return new WaitForSeconds(0.2f);
+        CurtainsAction();
+        yield return new WaitForSeconds(0.4f);
+        SceneManager.LoadScene(0);
     }
 }
