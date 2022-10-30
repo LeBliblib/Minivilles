@@ -23,7 +23,7 @@ public class Card
         switch (values.EventType)
         {
             case (CardEventType.CoinsFromBank):
-                cardEvent = new CoinsFromBankEvent(_values.cfb_CoinsNumber, _values.ForEachBuilding, _values.BuildingType);
+                cardEvent = new CoinsFromBankEvent(_values.cfb_CoinsNumber, _values.ForEachBuilding, _values.ForEachType);
                 break;
             case (CardEventType.CoinsFromOther):
                 cardEvent = new CoinsFromOtherEvent(_values.cfo_CoinsNumber, _values.AllPlayers, _values.CurrentPlayer);
