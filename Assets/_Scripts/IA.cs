@@ -23,6 +23,7 @@ public class IA : Player
     }
     public void ChoseCard(int playerId)
     {
+        Debug.LogWarning("oui");
         //Choisit la carte en fct de la priorité de la strategie definit
         Game game = Game.instance;
 
@@ -31,7 +32,7 @@ public class IA : Player
         coinDiff = coins;
         CheckMonumentToBuy();
 
-        if (this.PlayerID != playerId) { return; }
+        if (this.PlayerID != playerId) { Debug.LogWarning("amogos"); return; }
         if (!buyMonument)
         {
             List<int> indexes = new List<int>();
@@ -47,12 +48,17 @@ public class IA : Player
                 if (strat.priority[gareOwn, i] == priority)
                     indexes.Add(i);
             int chooseCard = Random.Range(0, indexes.Count);
-            int cost = game.GetCardCost(chooseCard);
+            int cost = game.GetCardCost(indexes[chooseCard]);
+            Debug.LogWarning("cost : " + cost + " choix : " + chooseCard);
             if (cost <= this.coins)
+            {
+                Debug.LogWarning("BuyCard");
                 game.BuyCard(indexes[chooseCard]);
+            }
+
             else
             {
-                Debug.Log("DontBuy");
+                Debug.LogWarning("DontBuy");
                 game.DontBuy();
             }
         }
@@ -65,7 +71,11 @@ public class IA : Player
                 nMonument++;
             }
             else
+            {
+                Debug.LogWarning("DontBuy M");
                 game.DontBuy();
+            }
+
         }
     }
 

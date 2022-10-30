@@ -292,6 +292,8 @@ public class Game : MonoBehaviour
 
     public void DontBuy()
     {
+        if (!canBuy) return;
+
         canBuy = false;
 
         EndTurn();
