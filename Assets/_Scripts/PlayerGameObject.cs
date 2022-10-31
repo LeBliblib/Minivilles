@@ -1,14 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class PlayerGameObject : MonoBehaviour
 {
-    List<CardGameObject> cards = new List<CardGameObject>();
+    [HideInInspector] public List<CardGameObject> cards = new List<CardGameObject>();
     [SerializeField] List<CardGameObject> monuments = new List<CardGameObject>();
 
-    public Transform playerTransform;
-    
     public void AddCard(CardGameObject co)
     {
         cards.Add(co);
@@ -23,7 +22,9 @@ public class PlayerGameObject : MonoBehaviour
 
     public int GetCardNumber()
     {
-        return cards.Count;
+        int numberOfTypes = cards.Select(x => x.cardSo).Distinct().Count();
+
+        return numberOfTypes;
     }
 
     public void ActivateCard(int index)

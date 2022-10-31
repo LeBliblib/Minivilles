@@ -5,18 +5,25 @@ using UnityEngine.UI;
 
 public class CardGameObject : MonoBehaviour
 {
-    [SerializeField] SpriteRenderer sr;
+    [SerializeField] Image img;
     [SerializeField] ParticleSystem particles;
 
-    public void Init(Sprite sprite, Vector3 goTo)
+    [HideInInspector] public CardScriptableObject cardSo;
+
+    public void Init(CardScriptableObject _cardSo, Transform parent)
     {
-        sr.sprite = sprite;
-        LeanTween.move(gameObject, goTo, 0.3f).setEaseInOutExpo();
+        cardSo = _cardSo;
+
+        img.sprite = cardSo.texture;
+        LeanTween.moveLocal(gameObject, parent.transform.localPosition, 0.3f).setEaseInOutExpo().setOnComplete(() =>
+        {
+            transform.parent = parent;
+        });
     }
 
     public void ShowActivation()
     {
-        particles.Play();
+        //particles.Play();
 
         Vector3 baseSize = transform.localScale;
 
@@ -28,6 +35,6 @@ public class CardGameObject : MonoBehaviour
 
     public void ChangeSprite(Sprite sprite)
     {
-        sr.sprite = sprite;
+        img.sprite = sprite;
     }
 }

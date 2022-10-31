@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class UIManager : MonoBehaviour
 {
@@ -16,6 +17,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] List<PlayerGameObject> players;
 
     [SerializeField] List<Sprite> monumentSprites;
+
+    [SerializeField] Transform gameCanvas;
+
+    [Header("Cards Doisplay")]
+    [SerializeField] List<Transform> player1Rows;
+    [SerializeField] List<Transform> player2Rows;
 
     [Header("PopUp")]
     [SerializeField] GameObject popUp;
@@ -115,11 +122,6 @@ public class UIManager : MonoBehaviour
             timer = 0;
             step++;
         }
-
-        if (Input.GetKeyDown("space"))
-        {
-            LaunchLoosePanel();
-        }
     }
 
     public void ShowDiceRoll(int rollValue)
@@ -146,17 +148,77 @@ public class UIManager : MonoBehaviour
     public void GiveCardToPlayer(int playerID, CardScriptableObject cardSO)
     {
         Debug.Log("current " + playerID);
-        Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        CardGameObject card = Instantiate(cardPrefab, pos, Quaternion.identity);
 
-        card.Init(cardSO.texture, players[playerID].playerTransform.position + (Vector3.right * 2 * players[playerID].GetCardNumber()));
+        CardGameObject card = Instantiate(cardPrefab, gameCanvas);
+
+        int rowsIndex = -1;
+        int index = 0;
+
+        foreach(CardGameObject c in players[playerID].cards)
+        {
+            if(c.cardSo == cardSO)
+            {
+                rowsIndex = index;
+            }
+
+            index++;
+        }
+
+        int i = players[playerID].GetCardNumber();
+
+        Transform parent = null;
+
+        if (rowsIndex != -1)
+            parent = players[playerID].cards[rowsIndex].transform.parent;
+        else
+            parent = playerID == 0 ? player1Rows[i] : player2Rows[i];
+
+        card.Init(cardSO, parent);
 
         players[playerID].AddCard(card);
+    }
+
+    public void RefreshCards(int playerID)
+    {
+        players[playerID].cards.ForEach(x => x.transform.parent = null);
+
+        List<CardGameObject> cards = new(players[playerID].cards);
+        players[playerID].cards.Clear();
+
+        foreach (CardGameObject card in cards)
+        {
+            int rowsIndex = -1;
+            int index = 0;
+
+            foreach (CardGameObject c in players[playerID].cards)
+            {
+                if (c.cardSo == card.cardSo)
+                {
+                    rowsIndex = index;
+                }
+
+                index++;
+            }
+
+            int i = players[playerID].GetCardNumber();
+
+            Transform parent = null;
+
+            if (rowsIndex != -1)
+                parent = players[playerID].cards[rowsIndex].transform.parent;
+            else
+                parent = playerID == 0 ? player1Rows[i] : player2Rows[i];
+
+            card.transform.parent = parent;
+
+            players[playerID].AddCard(card);
+        }
     }
 
     public void DeletePlayerCard(int playerID, int cardID)
     {
         players[playerID].RemoveCard(cardID);
+        RefreshCards(playerID);
     }
 
     public void ShowCardActivation(int playerID, int cardID)
@@ -349,14 +411,14 @@ public class UIManager : MonoBehaviour
     public void LaunchWinPanel()
     {
         winPopup.transform.GetChild(0).gameObject.SetActive(true);
-        LeanTween.scale(winPopup.transform.GetChild(1).gameObject, new Vector2(3, 3), 1.5f).setEase(LeanTweenType.easeOutElastic);
+        LeanTween.scale(winPopup.transform.GetChild(1).gameObject, new Vector2(5, 5), 1.5f).setEase(LeanTweenType.easeOutElastic);
         StartCoroutine(RetryButtonPop());
     }
 
     public void LaunchLoosePanel()
     {
         losePopup.transform.GetChild(0).gameObject.SetActive(true);
-        LeanTween.scale(losePopup.transform.GetChild(1).gameObject, new Vector2(3, 3), 1.5f).setEase(LeanTweenType.easeOutElastic);
+        LeanTween.scale(losePopup.transform.GetChild(1).gameObject, new Vector2(5,5), 1.5f).setEase(LeanTweenType.easeOutElastic);
         StartCoroutine(RetryButtonPop());
     }
 
