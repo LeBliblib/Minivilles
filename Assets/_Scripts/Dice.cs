@@ -6,7 +6,7 @@ public class Dice : MonoBehaviour
 {
     public static Dice Instance { get; private set; }
 
-   // private bool move = false;
+    private bool move = false;
 
     public int finalSide;
     public Sprite[] diceSides;
@@ -15,8 +15,8 @@ public class Dice : MonoBehaviour
     public GameObject diceEnd;
     public  GameObject animator;
 
-    private Vector3 startPos = new Vector3(-10, 0, 0);
-    private Vector3 endPos = new Vector3(2, 0, 0);
+    //private Vector3 startPos = new Vector3(-10, 0, 0);
+    //private Vector3 endPos = new Vector3(2, 0, 0);
 
     /*
 
@@ -64,7 +64,7 @@ public class Dice : MonoBehaviour
         return finalSide;
     }
 
-    private void Awake()// a supp ?
+   private void Awake()// a supp ?
     {
         Instance = this;
     }
@@ -79,7 +79,7 @@ public class Dice : MonoBehaviour
 
     public IEnumerator RollTheDice()
     {
-        //move = true;
+        move = true;
         animator.SetActive(true);
         diceEnd.SetActive(false);
 
@@ -92,7 +92,7 @@ public class Dice : MonoBehaviour
 
     public void Update()
     {
-        //if (move)
+        if (move)
             //transform.position = startPos;
             //transform.position = Vector3.MoveTowards(startPos, endPos, 0.5f * Time.deltaTime);
 
