@@ -26,14 +26,14 @@ public class AuraBehaviour : MonoBehaviour
     {
         aura = GetComponent<Image>();
 
-        var pwr = (Random.Range(50, 301) / 100.0f);
+        var pwr = Random.Range(75, 376);
         var angle = Random.Range(0, 361);
         var vx = (float)Mathf.Cos(angle * Mathf.Deg2Rad);
         var vy = (float)Mathf.Sin(angle * Mathf.Deg2Rad);
-        var frct = (vx > 0) ? 0.005f : -0.005f;
+        var frct = (vx > 0) ? 0.75f : -0.75f;
 
         speed = new Vector2(vx, vy);
-        weight = new Vector2(0, -0.01f);
+        weight = new Vector2(0, -0.5f);
         friction = new Vector2(frct, 0);
         power = new Vector2(pwr, pwr);
 
@@ -41,7 +41,7 @@ public class AuraBehaviour : MonoBehaviour
         aura.transform.localScale = new Vector2(lclScale, lclScale);
 
         alpha = 1.0f;
-        dispersion = 1.0f / Random.Range(90, 181);
+        dispersion = 70.0f / Random.Range(45, 91);
 
         toDisable = false;
         lifeTimer = 0;
@@ -56,16 +56,16 @@ public class AuraBehaviour : MonoBehaviour
     {
         lifeTimer += Time.deltaTime;
 
-        alpha -= dispersion/2.0f;
+        alpha -= dispersion*Time.deltaTime;
         color.a = alpha;
         aura.color = color;
 
 
         if (lifeTimer >= timeToLive || alpha <= 0) { toDisable = true; }
 
-        speed -= (weight + friction)/2;
+        speed -= (weight + friction)*Time.deltaTime;
 
-        Vector2 movement = speed * power;
+        Vector2 movement = speed * power * Time.deltaTime;
         aura.transform.position -= (Vector3)movement;
 
         if (toDisable) { gameObject.SetActive(false); }

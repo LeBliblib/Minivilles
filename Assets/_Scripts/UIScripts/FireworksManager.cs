@@ -38,6 +38,7 @@ public class FireworksManager : MonoBehaviour
         {
             GameObject lclAura = Instantiate(aura, pPos, new Quaternion(0,0,0,0), transform);
             lclAura.GetComponent<AuraBehaviour>().color = pColor;
+            Debug.Log(Time.deltaTime);
         }
     }
 }
