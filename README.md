@@ -13,8 +13,8 @@ UI :
 Le bouton pour passer / finir son tour est le panneau avec la flèche
  
 Améliorations : 
-2 difficultés pour l’IA au choix
-Utilisation d’une interface graphique (Unity)
-Ajout de sons et effets visuels
-Feux d’artifices codés par Ydris
-Animation des dés 
+- 2 difficultés pour l’IA au choix
+- Utilisation d’une interface graphique (Unity)
+- Ajout de sons et effets visuels
+-Feux d’artifices codés par Ydris
+- Animation des dés 
