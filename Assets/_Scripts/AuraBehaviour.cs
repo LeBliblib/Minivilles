@@ -56,14 +56,14 @@ public class AuraBehaviour : MonoBehaviour
     {
         lifeTimer += Time.deltaTime;
 
-        alpha -= dispersion;
+        alpha -= dispersion/2.0f;
         color.a = alpha;
         aura.color = color;
 
 
         if (lifeTimer >= timeToLive || alpha <= 0) { toDisable = true; }
 
-        speed -= (weight + friction);
+        speed -= (weight + friction)/2;
 
         Vector2 movement = speed * power;
         aura.transform.position -= (Vector3)movement;
