@@ -1,6 +1,6 @@
 # Minivilles
  
-            README - Groupe D
+README - Groupe D
 (Ydris BENMANSOUR, Hélias GAMONET, Erwan TEMPLE, Yuna BONNIFET)
 _________________________________________________________________
 
