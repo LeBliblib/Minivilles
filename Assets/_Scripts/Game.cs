@@ -55,9 +55,14 @@ public class Game : MonoBehaviour
             instance = this;
         else
             Destroy(gameObject);
+
+        Player p = new Player("jean " + 0, 0, false);
+        players.Add(p);
+        IA ia = new IA("jean" + 1, 1, true);
+        players.Add(ia);
     }
 
-    void Start()
+    IEnumerator Start()
     {
         //modifications Ydris
         cardsInPile = new List<GameObject>();
@@ -83,21 +88,16 @@ public class Game : MonoBehaviour
             index++;
         }
 
-        Player p = new Player("jean " + 0, 0, false);
-        players.Add(p);
-        IA ia = new IA("jean" + 1, 1, true);
-        players.Add(ia);
-        foreach(Player P in players)
+        currentTurnPlayerID = 0;
+
+        yield return new WaitForSeconds(0.8f);
+        foreach (Player P in players)
         {
             P.AddCard(new Card(P.PlayerID, cardsSO[0]));
             ui.GiveCardToPlayer(P.PlayerID, cardsSO[0]);
             P.AddCard(new Card(P.PlayerID, cardsSO[2]));
             ui.GiveCardToPlayer(P.PlayerID, cardsSO[2]);
         }
-
-
-        currentTurnPlayerID = 0;
-
         StartTurn();
     }
 
