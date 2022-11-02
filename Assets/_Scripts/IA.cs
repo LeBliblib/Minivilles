@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.IO.LowLevel.Unsafe;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class IA : Player
@@ -11,6 +12,7 @@ public class IA : Player
     bool buyMonument;
     bool radioBuy;
     int coinDiff;
+    sbyte difficulty;
     public IA(string name, int playerID, bool isIA) : base(name, playerID, isIA)
     {
         strat = CreateStrategie();
@@ -20,6 +22,7 @@ public class IA : Player
         gareOwn = 0;
         radioBuy = false;
         coinDiff = coins;
+        difficulty = MenuManager.difficulty;
     }
     public void ChoseCard(int playerId)
     {
@@ -36,14 +39,7 @@ public class IA : Player
         if (!buyMonument)
         {
             List<int> indexes = new List<int>();
-            int priority = -1;
-            int rand = Random.Range(0, 20);
-            if (rand < 15)
-                priority = 1;
-            else if (rand < 19 && rand >= 15)
-                priority = 2;
-            else if (rand == 19)
-                priority = 3;
+            int priority = RollPriority();
             for (int i = 0; i < strat.priority.GetLength(1); i++)
                 if (strat.priority[gareOwn, i] == priority)
                     indexes.Add(i);
@@ -64,9 +60,12 @@ public class IA : Player
         }
         else
         {
-            if (coins >= monuments[nMonument].Cost)
+            Debug.Log("nMonument " + nMonument );
+            int index = (nMonument % 2) + ((nMonument != 0 && nMonument !=3 )?2:0);
+            Debug.Log("index " + index );
+            if (coins >= monuments[index].Cost)
             {
-                game.BuyMonument(nMonument);
+                game.BuyMonument(index);
                 buyMonument = false;
                 nMonument++;
             }
@@ -77,6 +76,26 @@ public class IA : Player
             }
 
         }
+    }
+
+    public int RollPriority()
+    {
+        int priority = -1;
+        if(difficulty == 0)
+        {
+            int rand = Random.Range(0, 20);
+            if (rand < 15)
+                priority = 1;
+            else if (rand < 19 && rand >= 15)
+                priority = 2;
+            else if (rand == 19)
+                priority = 3;
+        }
+        else
+        {
+            priority = Random.Range(1, 4);
+        }
+        return priority;
     }
 
     public void LowerStartegie(Card card, int left)
@@ -173,7 +192,10 @@ public class IA : Player
         {
             case 0:
                 if (HasCard(Game.instance.GetSO(6)))
+                {
                     buyMonument = true;
+                    gareOwn = 1;
+                }
                 break;
             case 1:
                 if (radioBuy)
