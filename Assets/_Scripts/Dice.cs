@@ -37,7 +37,7 @@ public class Dice : MonoBehaviour
         animator.SetActive(false);
     }
 
-    public int Roll()
+    public int Roll() //fonction appelé dans Game
     {
         transform.position = startPosition;
 
@@ -55,7 +55,7 @@ public class Dice : MonoBehaviour
     public IEnumerator RollTheDice()
     {
         transform.localScale = startDiceScale;
-        LeanTween.scale(gameObject, endDiceScale, 1.1f).setEase(LeanTweenType.easeOutBounce);
+        LeanTween.scale(gameObject, endDiceScale, 1.1f).setEase(LeanTweenType.easeOutBounce); // permet de faire un effet de rebond lors du lancé du dé
         move = true;
         animator.SetActive(true);
         diceEnd.SetActive(false);
@@ -72,11 +72,10 @@ public class Dice : MonoBehaviour
         diceEnd.SetActive(false);
     }
 
-
-    public void Update()
+    public void Update() 
     {
         if (move)
-            transform.position += rollSpeed * Time.deltaTime;
+            transform.position += rollSpeed * Time.deltaTime; // fait avancer le dé 
     }
 }
 
