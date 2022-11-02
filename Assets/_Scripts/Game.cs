@@ -14,8 +14,7 @@ public class Game : MonoBehaviour
     private List<Player> players = new List<Player>();
     public Pile gamePile = new Pile();
 
-    public GameObject diceGO;
-    public GameObject diceGO2;
+    public List<Dice> diceObjects = new();
 
     int currentTurnPlayerID;
     bool canBuy;
@@ -170,19 +169,25 @@ public class Game : MonoBehaviour
 
         int[] rolls = new int[diceNumber];
 
+        int maxIndex = -1;
         for (int i = 0; i < diceNumber; i++)
         {
-            if (i == 1)
-            {
-                rolls[i] = diceGO2.GetComponent<Dice>().Roll2();
-            }
+            maxIndex++;
+
+            if(i < diceObjects.Count)
+                rolls[i] = diceObjects[i].Roll();
             else
-            {
-                //Renvoie un int avec la valeur du D roll
-                rolls[i] = diceGO.GetComponent<Dice>().Roll();
-            }
+                rolls[i] = diceObjects[0].Roll();
 
             rollsSum += rolls[i];
+        }
+
+        if(maxIndex < diceObjects.Count - 1)
+        {
+            for(int i = maxIndex; i < diceObjects.Count; i++)
+            {
+                diceObjects[i].HideDice();
+            }
         }
 
         Debug.Log("ergergh " + currentTurnPlayerID);
