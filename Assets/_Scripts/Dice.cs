@@ -41,7 +41,7 @@ public class Dice : MonoBehaviour
     {
         Instance = this;
         startPosition1 = new Vector3(-5.0f, 0, 0);
-        startPosition2 = new Vector3(-7, 0, 0);
+        startPosition2 = new Vector3(-7, 0.5f, 0);
         rollSpeed = new Vector3(5.0f, 0, 0);
         startDiceScale = new Vector3(2.0f, 2.0f, 1.0f);
         endDiceScale = new Vector3(1.0f, 1.0f, 1.0f);
