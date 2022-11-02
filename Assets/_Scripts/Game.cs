@@ -15,6 +15,7 @@ public class Game : MonoBehaviour
     public Pile gamePile = new Pile();
 
     public GameObject diceGO;
+    public GameObject diceGO2;
 
     int currentTurnPlayerID;
     bool canBuy;
@@ -134,8 +135,6 @@ public class Game : MonoBehaviour
 
         turnStartCallbacks = 0;
 
-        //Roll Dice Anim
-
         yield return new WaitForSeconds(2f); //Dice roll anim time
 
         RollDice(dicesNumber);
@@ -173,8 +172,16 @@ public class Game : MonoBehaviour
 
         for (int i = 0; i < diceNumber; i++)
         {
-            //Renvoie un int avec la valeur du D roll
-            rolls[i] = diceGO.GetComponent<Dice>().Roll();
+            if (i == 1)
+            {
+                rolls[i] = diceGO2.GetComponent<Dice>().Roll2();
+            }
+            else
+            {
+                //Renvoie un int avec la valeur du D roll
+                rolls[i] = diceGO.GetComponent<Dice>().Roll();
+            }
+
             rollsSum += rolls[i];
         }
 
