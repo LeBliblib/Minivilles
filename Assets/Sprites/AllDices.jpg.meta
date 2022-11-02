@@ -107,12 +107,12 @@ TextureImporter:
       name: AllDices_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 303
-        width: 30
-        height: 30
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 0
+        y: 0
+        width: 36
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -128,18 +128,18 @@ TextureImporter:
       name: AllDices_1
       rect:
         serializedVersion: 2
-        x: 3
-        y: 262
-        width: 31
-        height: 34
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 0
+        y: 298
+        width: 36
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed08b96eaf96c1744b822078f77f4976
+      spriteID: f705264cdfcaf8347a8a12a8d99ca1be
       internalID: -1472542297
       vertices: []
       indices: 
@@ -149,18 +149,18 @@ TextureImporter:
       name: AllDices_2
       rect:
         serializedVersion: 2
-        x: 39
-        y: 262
-        width: 34
-        height: 39
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 0
+        y: 153
+        width: 37
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0f0e9679c9f88c46ba4972190f5f9ee
+      spriteID: a86e63e5e6b48114e91df31ad90712f8
       internalID: 1078385965
       vertices: []
       indices: 
@@ -170,18 +170,18 @@ TextureImporter:
       name: AllDices_3
       rect:
         serializedVersion: 2
-        x: 73
-        y: 225
-        width: 39
-        height: 37
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 154
+        y: 152
+        width: 31
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 163bfee859f026149828514707371ca3
+      spriteID: d6c0a071fd49d064cbac86a6da20829a
       internalID: 1998324013
       vertices: []
       indices: 
@@ -191,18 +191,18 @@ TextureImporter:
       name: AllDices_4
       rect:
         serializedVersion: 2
-        x: 114
-        y: 262
-        width: 34
-        height: 39
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 300
+        y: 153
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 655e6588dbe478d4493b9e017abbacc3
+      spriteID: 93e52e7537b83794b820a973471546d4
       internalID: -1078068912
       vertices: []
       indices: 
@@ -212,18 +212,18 @@ TextureImporter:
       name: AllDices_5
       rect:
         serializedVersion: 2
-        x: 153
-        y: 262
-        width: 31
-        height: 34
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 451
+        y: 153
+        width: 35
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51b0211a4eb2f1446a5711c16b67dff1
+      spriteID: 6c91851d998b2e540bbc1b1edbc3bf65
       internalID: 1518292957
       vertices: []
       indices: 
@@ -233,18 +233,18 @@ TextureImporter:
       name: AllDices_6
       rect:
         serializedVersion: 2
-        x: 189
-        y: 262
-        width: 34
-        height: 39
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 187
+        y: 34
+        width: 38
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3544a0d73da9914ebe393971bed6391
+      spriteID: edd758b3a76e0c24087137e2b02c6ccc
       internalID: 232301826
       vertices: []
       indices: 
@@ -254,18 +254,18 @@ TextureImporter:
       name: AllDices_7
       rect:
         serializedVersion: 2
-        x: 227
-        y: 225
-        width: 35
-        height: 37
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 524
+        y: 150
+        width: 40
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f188f75559d844647a396960ab91c021
+      spriteID: 69697fdf184e5814b9770c10b9e289a5
       internalID: -1034821521
       vertices: []
       indices: 
@@ -275,18 +275,18 @@ TextureImporter:
       name: AllDices_8
       rect:
         serializedVersion: 2
-        x: 264
-        y: 262
-        width: 34
-        height: 39
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 336
+        y: 224
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70532e0b70f8b4a40b14d3fc7e538991
+      spriteID: 2905134f36e9a394aba6a6fe111837ba
       internalID: 936770571
       vertices: []
       indices: 
@@ -296,18 +296,18 @@ TextureImporter:
       name: AllDices_9
       rect:
         serializedVersion: 2
-        x: 303
-        y: 262
-        width: 31
-        height: 34
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 188
+        y: 152
+        width: 37
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dabfd1af33bb49546b67b2554e86794d
+      spriteID: 4ecb56717a6ae544db4314012cc91872
       internalID: -1030864048
       vertices: []
       indices: 
@@ -317,19 +317,19 @@ TextureImporter:
       name: AllDices_10
       rect:
         serializedVersion: 2
-        x: 339
-        y: 262
-        width: 34
-        height: 39
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 112
+        y: 264
+        width: 36
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ef5579b8c662df4cb63651540ad4bef
-      internalID: -1677683523
+      spriteID: c61ec90ed71ff33409e37aba43ed4c68
+      internalID: 491767501
       vertices: []
       indices: 
       edges: []
@@ -338,19 +338,19 @@ TextureImporter:
       name: AllDices_11
       rect:
         serializedVersion: 2
-        x: 374
-        y: 225
-        width: 38
-        height: 37
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 39
+        y: 115
+        width: 36
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63890e075f0392d4b9b7b291bf4c526f
-      internalID: 135984191
+      spriteID: 2072cb114549e804d9be14bfbc5eb9ba
+      internalID: 1475397412
       vertices: []
       indices: 
       edges: []
@@ -359,2110 +359,10 @@ TextureImporter:
       name: AllDices_12
       rect:
         serializedVersion: 2
-        x: 414
-        y: 262
-        width: 34
-        height: 39
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c02b3f51edcc93b4e80705049dcb5ab6
-      internalID: -1325880803
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_13
-      rect:
-        serializedVersion: 2
-        x: 453
-        y: 262
-        width: 31
-        height: 34
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d50ce87bc5f64624f836e2c3441ef9fb
-      internalID: 1577280018
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_14
-      rect:
-        serializedVersion: 2
-        x: 489
-        y: 262
-        width: 34
-        height: 39
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e86203588fbe25a4e833c443613c936c
-      internalID: -1508110194
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_15
-      rect:
-        serializedVersion: 2
         x: 524
-        y: 225
-        width: 38
-        height: 38
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fa0a104efc8b429408b3bd69b7e00a2c
-      internalID: 1281105271
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_16
-      rect:
-        serializedVersion: 2
-        x: 564
-        y: 262
-        width: 34
-        height: 39
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 24fd7e69d5084564991c8f46a456e4fa
-      internalID: -1066346224
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_17
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 225
-        width: 31
-        height: 37
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: deb7dfd116c357d4ab88e7fb1c50906c
-      internalID: 1048915979
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_18
-      rect:
-        serializedVersion: 2
-        x: 39
-        y: 225
-        width: 33
-        height: 37
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c5955550b80a3f248a16fda8b00d9ed1
-      internalID: -1067515588
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_19
-      rect:
-        serializedVersion: 2
-        x: 114
-        y: 225
-        width: 33
-        height: 37
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e20a49648db46e848b35dc56202c76dc
-      internalID: -1780422348
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_20
-      rect:
-        serializedVersion: 2
-        x: 153
-        y: 225
-        width: 31
-        height: 37
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 144eeafe767d19141814ede31ece1a1a
-      internalID: -260077146
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_21
-      rect:
-        serializedVersion: 2
-        x: 189
-        y: 225
-        width: 33
-        height: 37
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7c4dbfa9d17ab2e46be96560d7d9f6c6
-      internalID: 1646451557
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_22
-      rect:
-        serializedVersion: 2
-        x: 264
-        y: 225
-        width: 34
-        height: 37
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e6f11532397c6324c91ca6a356fc96ce
-      internalID: 1400301404
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_23
-      rect:
-        serializedVersion: 2
-        x: 303
-        y: 225
-        width: 31
-        height: 37
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fcdb665afe76aa143984fd83a6a5219c
-      internalID: 1504507977
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_24
-      rect:
-        serializedVersion: 2
-        x: 339
-        y: 225
-        width: 33
-        height: 37
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 682cc58389db33b439170bdad63ff047
-      internalID: -504289660
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_25
-      rect:
-        serializedVersion: 2
-        x: 414
-        y: 225
-        width: 33
-        height: 37
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c3db7b14617af064aae0d9ac749a313d
-      internalID: 1904502495
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_26
-      rect:
-        serializedVersion: 2
-        x: 453
-        y: 225
-        width: 31
-        height: 37
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3569ff550b4c4b0428f55a8fea8c548a
-      internalID: 1390328235
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_27
-      rect:
-        serializedVersion: 2
-        x: 489
-        y: 225
-        width: 33
-        height: 37
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 41c9a1285d39aa84da8247d74b099923
-      internalID: 920536132
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_28
-      rect:
-        serializedVersion: 2
-        x: 564
-        y: 225
-        width: 33
-        height: 37
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fcfe4833ed085084999ec373556b94c8
-      internalID: 1449455349
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_29
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 190
-        width: 31
-        height: 34
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 674e14e27562b2e4aa44adbabd092a97
-      internalID: 807446248
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_30
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 189
-        width: 33
-        height: 35
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 02dabd3530c11d54980a358cfc6c16ff
-      internalID: 1980873785
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_31
-      rect:
-        serializedVersion: 2
-        x: 77
-        y: 188
-        width: 34
-        height: 35
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: faea1bf14d3b50444b548141b1c35cc1
-      internalID: -998970136
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_32
-      rect:
-        serializedVersion: 2
-        x: 114
-        y: 189
-        width: 33
-        height: 35
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2b6468db0510f224daa80b6c02d89e21
-      internalID: -1708796781
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_33
-      rect:
-        serializedVersion: 2
-        x: 153
-        y: 190
-        width: 31
-        height: 34
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 43a2805355eb5274cb01cb094f49a917
-      internalID: 567728761
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_34
-      rect:
-        serializedVersion: 2
-        x: 190
-        y: 189
-        width: 33
-        height: 35
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8bef054760221be43b0fc5cb50bf3bd6
-      internalID: -1411559308
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_35
-      rect:
-        serializedVersion: 2
-        x: 227
-        y: 188
-        width: 34
-        height: 35
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bf67157e8f2bc344a84c1a11169b47bf
-      internalID: -1361595844
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_36
-      rect:
-        serializedVersion: 2
-        x: 264
-        y: 189
-        width: 33
-        height: 35
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a7e5b10dcbce631498aff359439e2157
-      internalID: 766640135
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_37
-      rect:
-        serializedVersion: 2
-        x: 303
-        y: 190
-        width: 31
-        height: 34
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4ccda9b19627c2c45a0b827bb3883360
-      internalID: 1731699991
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_38
-      rect:
-        serializedVersion: 2
-        x: 340
-        y: 189
-        width: 33
-        height: 35
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9346fe2066cd53a478d86eb967dd54e0
-      internalID: 1319439318
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_39
-      rect:
-        serializedVersion: 2
-        x: 377
-        y: 188
-        width: 34
-        height: 35
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f17e9774556e55645ac61a991c1a10d1
-      internalID: -1866840466
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_40
-      rect:
-        serializedVersion: 2
-        x: 414
-        y: 189
-        width: 33
-        height: 35
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1bbad1bb1a5758b4b959cbf15de766d0
-      internalID: -418780898
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_41
-      rect:
-        serializedVersion: 2
-        x: 453
-        y: 190
-        width: 31
-        height: 34
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a1372babe76cd2c48b4994ba74fd61e8
-      internalID: -1883227405
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_42
-      rect:
-        serializedVersion: 2
-        x: 490
-        y: 189
-        width: 33
-        height: 35
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 08838c26121a28d46821e7c3c1fc4a76
-      internalID: 201533363
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_43
-      rect:
-        serializedVersion: 2
-        x: 527
-        y: 188
-        width: 34
-        height: 35
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f7cb06fa0754f5d4ab0532388e602b61
-      internalID: 891849105
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_44
-      rect:
-        serializedVersion: 2
-        x: 564
-        y: 189
-        width: 33
-        height: 35
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e5e1171d80c2db74988f90f4bc7f918e
-      internalID: 1913122488
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_45
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 154
-        width: 30
-        height: 30
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6adc23f1f3e3f3e41b13dc27a59cb498
-      internalID: -1011270298
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_46
-      rect:
-        serializedVersion: 2
-        x: 39
-        y: 154
-        width: 34
-        height: 30
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 34007016a3e01c747acd439cd139ee59
-      internalID: 1589095067
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_47
-      rect:
-        serializedVersion: 2
-        x: 75
-        y: 154
-        width: 37
-        height: 30
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ac6b0dc27f75c7c4badd993d146bfdea
-      internalID: 2131722003
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_48
-      rect:
-        serializedVersion: 2
-        x: 114
-        y: 154
-        width: 34
-        height: 30
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 744a1db553990674e9a866b27f3dc66e
-      internalID: -302128673
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_49
-      rect:
-        serializedVersion: 2
-        x: 154
-        y: 154
-        width: 30
-        height: 30
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7f3c8e6acddc01244aa79e1dfded52b5
-      internalID: 853135836
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_50
-      rect:
-        serializedVersion: 2
-        x: 189
-        y: 154
-        width: 34
-        height: 30
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 66d8684adea18564bae1c83bead6c690
-      internalID: -1644524302
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_51
-      rect:
-        serializedVersion: 2
-        x: 225
-        y: 154
-        width: 37
-        height: 30
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 75acab9fd08f432429c653947836a8f2
-      internalID: -620308853
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_52
-      rect:
-        serializedVersion: 2
-        x: 264
-        y: 154
-        width: 34
-        height: 30
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 32f35182d9aa89f4a99f83ac0d8d4ba6
-      internalID: -508212680
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_53
-      rect:
-        serializedVersion: 2
-        x: 304
-        y: 154
-        width: 30
-        height: 30
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 96f64a197fef4d943b6cec6e8d47b7e7
-      internalID: -1364653523
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_54
-      rect:
-        serializedVersion: 2
-        x: 339
-        y: 154
-        width: 34
-        height: 30
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fb222ee4d9db05d4a84c46a974b15f29
-      internalID: -76482069
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_55
-      rect:
-        serializedVersion: 2
-        x: 375
-        y: 154
-        width: 37
-        height: 30
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0eebbec3f45813e48a3a47a47487d18b
-      internalID: -325796088
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_56
-      rect:
-        serializedVersion: 2
-        x: 414
-        y: 154
-        width: 34
-        height: 30
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0290ad40be1a097438f5701304a838c9
-      internalID: -898824676
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_57
-      rect:
-        serializedVersion: 2
-        x: 454
-        y: 154
-        width: 30
-        height: 30
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 464e96229b7f0d1458faba2c3a69058c
-      internalID: 1123745279
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_58
-      rect:
-        serializedVersion: 2
-        x: 489
-        y: 154
-        width: 34
-        height: 30
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 19e59d517dea3a3429e9766c45332d7c
-      internalID: 1703304836
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_59
-      rect:
-        serializedVersion: 2
-        x: 525
-        y: 154
-        width: 37
-        height: 30
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bd13b0dd254900541a0aa477a314ada9
-      internalID: -690614894
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_60
-      rect:
-        serializedVersion: 2
-        x: 564
-        y: 154
-        width: 34
-        height: 30
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7f5f5082ff770734a81dfd6b14afbe96
-      internalID: -2123571369
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_61
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 114
-        width: 31
-        height: 34
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 916a1297c4b97d641b0d3490a3d03488
-      internalID: -1193752626
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_62
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 114
-        width: 33
-        height: 35
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0fbf7b763e0e1f94fbafc6458ef56353
-      internalID: 2143705344
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_63
-      rect:
-        serializedVersion: 2
-        x: 77
-        y: 115
-        width: 34
-        height: 35
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e06a4f36b9b20ca4c93743e34199d6aa
-      internalID: 1227468997
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_64
-      rect:
-        serializedVersion: 2
-        x: 114
-        y: 114
-        width: 33
-        height: 35
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b1721857b6251ea48bcf83e0a6761eee
-      internalID: -114777722
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_65
-      rect:
-        serializedVersion: 2
-        x: 153
-        y: 114
-        width: 31
-        height: 34
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 27535b03b4dce724abff8ad5135c85b3
-      internalID: 1285332986
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_66
-      rect:
-        serializedVersion: 2
-        x: 190
-        y: 114
-        width: 33
-        height: 35
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3a5af7fa8b5c96d4db01306d3168fe6d
-      internalID: 1446900453
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_67
-      rect:
-        serializedVersion: 2
-        x: 227
-        y: 115
-        width: 34
-        height: 35
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 23c30b093e96a954eaf68194d643cdb7
-      internalID: 759473106
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_68
-      rect:
-        serializedVersion: 2
-        x: 264
-        y: 114
-        width: 33
-        height: 35
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8444f0b663963524aaed0542ce678745
-      internalID: -1350702768
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_69
-      rect:
-        serializedVersion: 2
-        x: 303
-        y: 114
-        width: 31
-        height: 34
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 89c5beceb8e6f81499a20caa2aaa8886
-      internalID: 854164
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_70
-      rect:
-        serializedVersion: 2
-        x: 340
-        y: 114
-        width: 33
-        height: 35
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e11d9a66827cf594a8256f4757365194
-      internalID: 1511010009
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_71
-      rect:
-        serializedVersion: 2
-        x: 377
-        y: 115
-        width: 34
-        height: 35
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ad54f19cc97e9e74c85ad42884a427e9
-      internalID: -1389212870
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_72
-      rect:
-        serializedVersion: 2
-        x: 414
-        y: 114
-        width: 33
-        height: 35
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bb1906c4c2048c042be13e19da1da36d
-      internalID: -740920084
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_73
-      rect:
-        serializedVersion: 2
-        x: 453
-        y: 114
-        width: 31
-        height: 34
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9ec99d2e2709bc045bd2e9c3365008b2
-      internalID: -524383723
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_74
-      rect:
-        serializedVersion: 2
-        x: 490
-        y: 114
-        width: 33
-        height: 35
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a91787310391afe498428a3053ab2d22
-      internalID: -1220579614
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_75
-      rect:
-        serializedVersion: 2
-        x: 527
-        y: 115
-        width: 34
-        height: 35
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5e34357a0260c6f49bc9ae870617ffe7
-      internalID: 1838902468
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_76
-      rect:
-        serializedVersion: 2
-        x: 564
-        y: 114
-        width: 33
-        height: 35
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6fcf4c8b49402f746a5768cd7a378f83
-      internalID: 1307682003
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_77
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 76
-        width: 31
-        height: 36
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1ab4eb3c0f550db4c982020d26ac94a0
-      internalID: 1332700803
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_78
-      rect:
-        serializedVersion: 2
-        x: 39
-        y: 75
-        width: 33
-        height: 38
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5b6cf31e52f47f449b9952bcb202976e
-      internalID: 1793951154
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_79
-      rect:
-        serializedVersion: 2
-        x: 75
-        y: 37
-        width: 37
-        height: 37
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8f1beb243c9e50c4faada884f1b4bd70
-      internalID: -1602677521
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_80
-      rect:
-        serializedVersion: 2
-        x: 114
-        y: 75
-        width: 33
-        height: 38
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ec36fc5b3ca244c47987cef4356ff4b0
-      internalID: 1989165245
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_81
-      rect:
-        serializedVersion: 2
-        x: 153
-        y: 76
-        width: 31
-        height: 36
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8e3d195e5b13de642b6ccd1c4fd32450
-      internalID: -2102320613
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_82
-      rect:
-        serializedVersion: 2
-        x: 189
-        y: 75
-        width: 33
-        height: 38
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c8f95546f7a4d3f4987456ee5689290b
-      internalID: -674476589
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_83
-      rect:
-        serializedVersion: 2
-        x: 226
-        y: 37
-        width: 35
-        height: 37
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c307f1df0d34e594d88b725e9fceae6b
-      internalID: -630113196
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_84
-      rect:
-        serializedVersion: 2
-        x: 264
-        y: 75
-        width: 33
-        height: 38
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9642bf55d973ab44ab6354d708013d93
-      internalID: -607285910
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_85
-      rect:
-        serializedVersion: 2
-        x: 303
-        y: 76
-        width: 31
-        height: 36
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c726f1d3cf6297348af79eea9374b30c
-      internalID: -1542985663
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_86
-      rect:
-        serializedVersion: 2
-        x: 339
-        y: 75
-        width: 33
-        height: 38
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2aead869cc090524699fa78422c6cf8e
-      internalID: 1967756010
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_87
-      rect:
-        serializedVersion: 2
-        x: 376
-        y: 37
-        width: 36
-        height: 37
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 49756f64bfe2a674da6d57199d2b20fe
-      internalID: -1212518625
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_88
-      rect:
-        serializedVersion: 2
-        x: 414
-        y: 75
-        width: 33
-        height: 38
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 56e0280002a960240b42c38cabb5d825
-      internalID: 947696291
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_89
-      rect:
-        serializedVersion: 2
-        x: 453
-        y: 76
-        width: 31
-        height: 36
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a3d7900b1d8a8d34c92ab975ecd1df3e
-      internalID: 1367402577
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_90
-      rect:
-        serializedVersion: 2
-        x: 489
-        y: 75
-        width: 33
-        height: 38
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ffad816cfc1564b498420f7212beb4b3
-      internalID: -434057760
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_91
-      rect:
-        serializedVersion: 2
-        x: 526
-        y: 37
-        width: 36
-        height: 76
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 160336eb1fefac843b6d1c61875006fe
-      internalID: 1523311403
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_92
-      rect:
-        serializedVersion: 2
-        x: 564
-        y: 75
-        width: 33
-        height: 38
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 73c1360eb87c88e4b86c370be2309e68
-      internalID: -465767839
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_93
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 40
-        width: 31
-        height: 34
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 88b04d8b2ed76b54597108154793fc3d
-      internalID: -1211554081
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_94
-      rect:
-        serializedVersion: 2
-        x: 39
-        y: 36
-        width: 34
-        height: 39
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 63995677364ea0843b3249bd191d8b37
-      internalID: 671993107
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_95
-      rect:
-        serializedVersion: 2
-        x: 114
-        y: 36
-        width: 34
-        height: 39
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7cacfd63a12c3c541a55a16f71927692
-      internalID: 338544299
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_96
-      rect:
-        serializedVersion: 2
-        x: 153
-        y: 40
-        width: 31
-        height: 34
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ec9792ac0cb3cc14d919c41ac53713f9
-      internalID: 912604059
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_97
-      rect:
-        serializedVersion: 2
-        x: 189
-        y: 36
-        width: 34
-        height: 39
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c10aea374448bf04ca160bbd0bb75856
-      internalID: 898229732
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_98
-      rect:
-        serializedVersion: 2
-        x: 264
-        y: 36
-        width: 34
-        height: 39
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 715a2bc3570ae6d44bf4b02f73279ec8
-      internalID: -2073031555
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_99
-      rect:
-        serializedVersion: 2
-        x: 303
-        y: 40
-        width: 31
-        height: 34
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 660af9457204ebb438dcb1c90487757b
-      internalID: 979018942
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_100
-      rect:
-        serializedVersion: 2
-        x: 339
-        y: 36
-        width: 34
-        height: 39
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 77d4277578b124c4f999bffdd2536c78
-      internalID: -93960054
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_101
-      rect:
-        serializedVersion: 2
-        x: 414
-        y: 36
-        width: 34
-        height: 39
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 994b29365ef39ae49aa152f92bb2d70e
-      internalID: 1531982791
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_102
-      rect:
-        serializedVersion: 2
-        x: 453
-        y: 40
-        width: 31
-        height: 34
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5cf8fea61bf02a74f8ea374dfcfac943
-      internalID: -1376933444
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_103
-      rect:
-        serializedVersion: 2
-        x: 489
-        y: 36
-        width: 34
-        height: 39
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9425909b75113004c9528eaff11c616a
-      internalID: -779097295
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_104
-      rect:
-        serializedVersion: 2
-        x: 564
-        y: 36
-        width: 34
-        height: 39
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 027cff11a774ca941bbacd62fd4c4332
-      internalID: 633764376
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_105
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 4
-        width: 30
-        height: 30
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3cfb7bb3eaf1f134ab6c4827dd05d4b0
-      internalID: -871012706
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_106
-      rect:
-        serializedVersion: 2
-        x: 226
-        y: 265
-        width: 36
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 409a87841cfe5224eb0c33c5498030f4
-      internalID: -941193961
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_107
-      rect:
-        serializedVersion: 2
-        x: 76
-        y: 75
-        width: 37
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 92503dad16a3e0d47b57ad5ace15860b
-      internalID: 178937307
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_108
-      rect:
-        serializedVersion: 2
-        x: 75
-        y: 264
-        width: 36
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c12a9c2b0191d2b4cba0c6d28792785a
-      internalID: -588256440
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_109
-      rect:
-        serializedVersion: 2
-        x: 376
         y: 263
-        width: 36
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a098c1385330c6b40b2e48cd21cfc38d
-      internalID: 1540669101
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_110
-      rect:
-        serializedVersion: 2
-        x: 226
-        y: 76
-        width: 37
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 972b90589acf672449024cc4396dcc9b
-      internalID: 1552228859
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_111
-      rect:
-        serializedVersion: 2
-        x: 527
-        y: 264
-        width: 34
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9745c354560d86144a278648d49a4e61
-      internalID: -1578063783
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AllDices_112
-      rect:
-        serializedVersion: 2
-        x: 374
-        y: 73
         width: 39
-        height: 42
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2470,8 +370,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 708a55ea5511e044689e4132fd843a4a
-      internalID: 1342028335
+      spriteID: 8127091a66e691d4cac8446727967db2
+      internalID: 1057416976
       vertices: []
       indices: 
       edges: []
@@ -2487,119 +387,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      AllDices_97: 898229732
       AllDices_8: 936770571
-      AllDices_84: -607285910
       AllDices_3: 1998324013
-      AllDices_76: 1307682003
-      AllDices_90: -434057760
-      AllDices_5: 1518292957
-      AllDices_46: 1589095067
-      AllDices_92: -465767839
-      AllDices_40: -418780898
-      AllDices_59: -690614894
-      AllDices_15: 1281105271
-      AllDices_17: 1048915979
-      AllDices_55: -325796088
-      AllDices_20: -260077146
-      AllDices_96: 912604059
-      AllDices_25: 1904502495
-      AllDices_110: 1552228859
-      AllDices_9: -1030864048
-      AllDices_93: -1211554081
-      AllDices_43: 891849105
-      AllDices_28: 1449455349
-      AllDices_51: -620308853
-      AllDices_22: 1400301404
-      AllDices_105: -871012706
-      AllDices_23: 1504507977
-      AllDices_71: -1389212870
-      AllDices_31: -998970136
-      AllDices_75: 1838902468
-      AllDices_106: -941193961
-      AllDices_56: -898824676
-      AllDices_29: 807446248
-      AllDices_50: -1644524302
-      AllDices_73: -524383723
-      AllDices_35: -1361595844
-      AllDices_26: 1390328235
-      AllDices_69: 854164
-      AllDices_104: 633764376
-      AllDices_83: -630113196
-      AllDices_45: -1011270298
-      AllDices_10: -1677683523
-      AllDices_13: 1577280018
-      AllDices_72: -740920084
-      AllDices_44: 1913122488
-      AllDices_47: 2131722003
-      AllDices_57: 1123745279
-      AllDices_111: -1578063783
-      AllDices_32: -1708796781
-      AllDices_112: 1342028335
-      AllDices_85: -1542985663
-      AllDices_107: 178937307
-      AllDices_100: -93960054
-      AllDices_48: -302128673
-      AllDices_86: 1967756010
-      AllDices_68: -1350702768
-      AllDices_11: 135984191
-      AllDices_54: -76482069
-      AllDices_2: 1078385965
-      AllDices_42: 201533363
-      AllDices_58: 1703304836
-      AllDices_64: -114777722
-      AllDices_38: 1319439318
-      AllDices_98: -2073031555
       AllDices_1: -1472542297
       AllDices_7: -1034821521
-      AllDices_34: -1411559308
-      AllDices_88: 947696291
-      AllDices_66: 1446900453
-      AllDices_18: -1067515588
-      AllDices_108: -588256440
-      AllDices_80: 1989165245
+      AllDices_5: 1518292957
+      AllDices_10: 491767501
       AllDices_4: -1078068912
-      AllDices_14: -1508110194
-      AllDices_41: -1883227405
-      AllDices_74: -1220579614
-      AllDices_21: 1646451557
-      AllDices_99: 979018942
+      AllDices_12: 1057416976
       AllDices_0: -1857967600
-      AllDices_62: 2143705344
-      AllDices_49: 853135836
-      AllDices_82: -674476589
-      AllDices_67: 759473106
-      AllDices_103: -779097295
-      AllDices_30: 1980873785
-      AllDices_87: -1212518625
-      AllDices_53: -1364653523
-      AllDices_60: -2123571369
-      AllDices_63: 1227468997
-      AllDices_79: -1602677521
-      AllDices_33: 567728761
-      AllDices_94: 671993107
-      AllDices_52: -508212680
-      AllDices_101: 1531982791
-      AllDices_70: 1511010009
-      AllDices_102: -1376933444
-      AllDices_16: -1066346224
-      AllDices_77: 1332700803
-      AllDices_109: 1540669101
-      AllDices_39: -1866840466
-      AllDices_12: -1325880803
-      AllDices_61: -1193752626
-      AllDices_95: 338544299
-      AllDices_91: 1523311403
-      AllDices_19: -1780422348
-      AllDices_24: -504289660
-      AllDices_37: 1731699991
-      AllDices_78: 1793951154
-      AllDices_36: 766640135
-      AllDices_65: 1285332986
+      AllDices_9: -1030864048
       AllDices_6: 232301826
-      AllDices_27: 920536132
-      AllDices_81: -2102320613
-      AllDices_89: 1367402577
+      AllDices_11: 1475397412
+      AllDices_2: 1078385965
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -13,11 +13,12 @@ public class Button : MonoBehaviour
     }
     public void PileGlide()
     {
-        GameObject parent = transform.parent.gameObject;
+        RectTransform parent = transform.parent.GetComponent<RectTransform>();
+
         isPileOpen = !isPileOpen;
         if (isPileOpen)
-            LeanTween.move(parent, parent.transform.position + parent.transform.right * (parent.GetComponent<RectTransform>().sizeDelta.x - rectTransform.sizeDelta.x), 1) ;
+            LeanTween.move(parent, new Vector3(-24, 0, 0), 0.2f); //parent.transform.position + parent.transform.right * (parent.sizeDelta.x - rectTransform.sizeDelta.x)
         else
-            LeanTween.move(parent, parent.transform.position + -parent.transform.right * (parent.GetComponent<RectTransform>().sizeDelta.x - rectTransform.sizeDelta.x), 1);
+            LeanTween.move(parent, new Vector3(-467, 0, 0), 0.2f); //parent.transform.position + -parent.transform.right * (parent.sizeDelta.x - rectTransform.sizeDelta.x)
     }
 }

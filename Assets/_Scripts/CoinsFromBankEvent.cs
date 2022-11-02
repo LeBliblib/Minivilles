@@ -27,8 +27,14 @@ public class CoinsFromBankEvent : CardEvent
         {
             foreach(Card c in player.cards)
             {
+                Debug.LogWarning("Coins from other foreach "+ c.values.BuildingType.ToString());
                 if(c.values.BuildingType == buildingType)
+                {
+                    Debug.LogWarning("good type");
+
                     player.ChangeCoins(coinsNumber);
+                }
+
             }
         }
 

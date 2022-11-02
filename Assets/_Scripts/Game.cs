@@ -134,6 +134,10 @@ public class Game : MonoBehaviour
 
         turnStartCallbacks = 0;
 
+        //Roll Dice Anim
+
+        yield return new WaitForSeconds(2f); //Dice roll anim time
+
         RollDice(dicesNumber);
     }
 
@@ -233,6 +237,9 @@ public class Game : MonoBehaviour
             yield return null;
         }
 
+        //Buy start anim
+        yield return new WaitForSeconds(2f); //Buy start anim time
+
         Debug.Log("Can buy : " + playerDoneActivation + " " + players.Count);
         playerDoneActivation = 0;
         canBuy = true;
@@ -287,11 +294,27 @@ public class Game : MonoBehaviour
 
         canBuy = false;
 
-        EndTurn();
+        int mCount = 0;
+
+        player.monuments.ForEach(x => {
+            if (x.isActive) mCount++;
+        });
+
+        if(mCount == player.monuments.Count)
+        {
+            if(player.isIA)
+                ui.LaunchLoosePanel();
+            else
+                ui.LaunchWinPanel();
+        }
+        else
+            EndTurn();
     }
 
     public void DontBuy()
     {
+        if (!canBuy) return;
+
         canBuy = false;
 
         EndTurn();
