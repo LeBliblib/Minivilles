@@ -50,6 +50,7 @@ public class UIManager : MonoBehaviour
 
     [Header("Starting, Ending and PopUp Win&Loose")]
     [SerializeField] GameObject winPopup;
+    [SerializeField] GameObject fireworksManager;
     [SerializeField] GameObject losePopup;
     [SerializeField] GameObject retryButton;
     [SerializeField] Image[] curtains;
@@ -410,6 +411,7 @@ public class UIManager : MonoBehaviour
 
     public void LaunchWinPanel()
     {
+        fireworksManager.SetActive(true);
         winPopup.transform.GetChild(0).gameObject.SetActive(true);
         LeanTween.scale(winPopup.transform.GetChild(1).gameObject, new Vector2(5, 5), 1.5f).setEase(LeanTweenType.easeOutElastic);
         StartCoroutine(RetryButtonPop());
