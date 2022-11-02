@@ -48,7 +48,9 @@ public class IA : Player
                     indexes.Add(i);
             int chooseCard = Random.Range(0, indexes.Count);
             int cost = game.GetCardCost(chooseCard);
-            if (cost <= this.coins)
+            Debug.Log(cost + " || " + coins);
+            Debug.Log("chooseCard : " + chooseCard);
+            if (cost <= coins)
                 game.BuyCard(indexes[chooseCard]);
             else
             {
@@ -58,7 +60,7 @@ public class IA : Player
         }
         else
         {
-            if (this.coins >= monuments[nMonument].Cost)
+            if (coins >= monuments[nMonument].Cost)
             {
                 game.BuyMonument(nMonument);
                 buyMonument = false;
@@ -80,9 +82,11 @@ public class IA : Player
                 int priority = strat.priority[gareOwn, index];
                 for (int i = 0; i < strat.priority.GetLength(1); i++)
                 {
-                    Debug.Log(i);
                     if (strat.priority[gareOwn, i] >= priority)
+                    {
                         strat.priority[gareOwn, i]--;
+                        Debug.Log("i : " + i);
+                    }
                 }
             }
         }
