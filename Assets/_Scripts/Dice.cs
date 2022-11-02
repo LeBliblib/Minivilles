@@ -72,8 +72,6 @@ public class Dice : MonoBehaviour
     {
         if (move)
             transform.position += rollSpeed * Time.deltaTime;
-
-
     }
 }
 
