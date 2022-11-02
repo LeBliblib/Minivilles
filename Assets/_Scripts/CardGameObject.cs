@@ -15,15 +15,15 @@ public class CardGameObject : MonoBehaviour
         cardSo = _cardSo;
 
         img.sprite = cardSo.texture;
-        LeanTween.moveLocal(gameObject, parent.transform.localPosition, 0.3f).setEaseInOutExpo().setOnComplete(() =>
+        LeanTween.move(gameObject, parent.transform.position, 0.3f).setEaseInOutExpo().setOnComplete(() =>
         {
-            transform.parent = parent;
+            transform.SetParent(parent);
         });
     }
 
     public void ShowActivation()
     {
-        //particles.Play();
+        LeanTween.cancel(gameObject);
 
         Vector3 baseSize = transform.localScale;
 

@@ -1,7 +1,6 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.IO.LowLevel.Unsafe;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class IA : Player
@@ -24,9 +23,9 @@ public class IA : Player
         coinDiff = coins;
         difficulty = MenuManager.difficulty;
     }
+
     public void ChoseCard(int playerId)
     {
-        Debug.LogWarning("oui");
         //Choisit la carte en fct de la priorité de la strategie definit
         Game game = Game.instance;
 
@@ -35,7 +34,7 @@ public class IA : Player
         coinDiff = coins;
         CheckMonumentToBuy();
 
-        if (this.PlayerID != playerId) { Debug.LogWarning("amogos"); return; }
+        if (this.PlayerID != playerId) { return; }
         if (!buyMonument)
         {
             List<int> indexes = new List<int>();
@@ -43,39 +42,52 @@ public class IA : Player
             for (int i = 0; i < strat.priority.GetLength(1); i++)
                 if (strat.priority[gareOwn, i] == priority)
                     indexes.Add(i);
-            int chooseCard = Random.Range(0, indexes.Count);
+            int chooseCard = UnityEngine.Random.Range(0, indexes.Count);
             int cost = game.GetCardCost(indexes[chooseCard]);
-            Debug.LogWarning("cost : " + cost + " choix : " + chooseCard);
+
             if (cost <= this.coins)
             {
-                Debug.LogWarning("BuyCard");
+                Game.instance.StartCoroutine(ResolveAction(true, true, indexes[chooseCard]));
+
                 game.BuyCard(indexes[chooseCard]);
             }
 
             else
             {
-                Debug.LogWarning("DontBuy");
                 game.DontBuy();
             }
         }
         else
         {
-            Debug.Log("nMonument " + nMonument );
             int index = (nMonument % 2) + ((nMonument != 0 && nMonument !=3 )?2:0);
-            Debug.Log("index " + index );
+
             if (coins >= monuments[index].Cost)
             {
-                game.BuyMonument(index);
+                Game.instance.StartCoroutine(ResolveAction(true, false, index));
                 buyMonument = false;
                 nMonument++;
             }
             else
             {
-                Debug.LogWarning("DontBuy M");
-                game.DontBuy();
+                Game.instance.StartCoroutine(ResolveAction(false));
             }
 
         }
+    }
+
+    IEnumerator ResolveAction(bool buy, bool isCard = true, int id = 0)
+    {
+        Game game = Game.instance;
+
+        yield return new WaitForSeconds(1f);
+
+        if (buy)
+        {
+            if (isCard) game.BuyCard(id);
+            else game.BuyMonument(id);
+        }
+        else
+            game.DontBuy();
     }
 
     public int RollPriority()
@@ -83,7 +95,7 @@ public class IA : Player
         int priority = -1;
         if(difficulty == 0)
         {
-            int rand = Random.Range(0, 20);
+            int rand = UnityEngine.Random.Range(0, 20);
             if (rand < 15)
                 priority = 1;
             else if (rand < 19 && rand >= 15)
@@ -93,7 +105,7 @@ public class IA : Player
         }
         else
         {
-            priority = Random.Range(1, 4);
+            priority = UnityEngine.Random.Range(1, 4);
         }
         return priority;
     }
@@ -112,7 +124,6 @@ public class IA : Player
                     if (strat.priority[gareOwn, i] >= priority)
                     {
                         strat.priority[gareOwn, i]--;
-                        Debug.Log("i : " + i);
                     }
                 }
             }
@@ -213,17 +224,14 @@ public class IA : Player
                 break;
         }
     }
-    public void Destroy()
-    {
 
-    }
     public Strategie CreateStrategie()
     {
         //Choisit une stratégie au hasard en fct de celle pre-définit
         //Tableau   (0 à 11 les 12 cartes de base
         //          (12 à 14 les 3 cartes violette)
         //          (15 à 18 les 4 monuments
-        int rand = Random.Range(0, 3);
+        int rand = UnityEngine.Random.Range(0, 3);
         int[,] strategie;
         switch (rand)
         {

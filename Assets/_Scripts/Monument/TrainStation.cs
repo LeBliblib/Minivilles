@@ -15,14 +15,12 @@ public class TrainStation : Monument
 
     public void CheckForActivation(int turnPlayerID)
     {
-        Debug.Log("player ID" + turnPlayerID + "||" + player.PlayerID);
         if (turnPlayerID == player.PlayerID) Activate();
         else Game.instance.SetCallback(CallbackTypes.TurnStart);
     }
 
     public override void Activate()
     {
-        Debug.Log("IsIA" + player.isIA);
         if (!player.isIA)
         {
         Game game = Game.instance;

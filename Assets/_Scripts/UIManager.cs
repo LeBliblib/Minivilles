@@ -4,13 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
-using Unity.VisualScripting;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] GameObject dice;
-    [SerializeField] TextMeshProUGUI diceValueText;
-
     [SerializeField] List<TextMeshProUGUI> coinsText;
 
     [SerializeField] CardGameObject cardPrefab;
@@ -20,9 +16,21 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] Transform gameCanvas;
 
-    [Header("Cards Doisplay")]
+    [Header("Pile de cartes")]
+    [SerializeField] GameObject cardsGrid;
+    List<GameObject> cardsInPile;
+
+    [Header("Cards Display")]
     [SerializeField] List<Transform> player1Rows;
     [SerializeField] List<Transform> player2Rows;
+
+    [SerializeField] PanelGlide panelPile;
+
+    [SerializeField] Image bigCard;
+
+    [Header("New Turn")]
+    [SerializeField] GameObject newTurnObj;
+    [SerializeField] TextMeshProUGUI newTurnText;
 
     [Header("PopUp")]
     [SerializeField] GameObject popUp;
@@ -72,12 +80,13 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        dice.SetActive(false);
+        bigCard.gameObject.SetActive(false);
         tradeCardSelectP1.SetActive(false);
         tradeCardSelectP2.SetActive(false);
 
         popUp.transform.localScale = Vector3.zero;
         tradePopUp.transform.localScale = Vector3.zero;
+        newTurnObj.transform.localScale = Vector3.zero;
 
         winPopup.transform.GetChild(1).localScale = new Vector2(0, 0);
         winPopup.transform.GetChild(0).gameObject.SetActive(false);
@@ -85,10 +94,9 @@ public class UIManager : MonoBehaviour
         losePopup.transform.GetChild(0).gameObject.SetActive(false);
         retryButton.transform.localScale = new Vector2(0, 0);
 
-        curtains[0].transform.position = new Vector2(Screen.width / 2, Screen.height);
-        curtains[0].rectTransform.sizeDelta = new Vector2(Screen.width, Screen.height / 2);
-        curtains[1].transform.position = new Vector2(Screen.width / 2, 0);
-        curtains[1].rectTransform.sizeDelta = new Vector2(Screen.width, Screen.height / 2);
+        curtains[0].rectTransform.localScale = Vector3.one;
+        curtains[1].rectTransform.localScale = Vector3.one;
+
         areCurtainsOpened = false;
         timer = 0;
         step = 0;
@@ -96,6 +104,8 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        Game.instance.onCardBuy += RefreshCardPile;
+
         List<Player> players = Game.instance.GetAllPlayers();
 
         foreach(Player player in players)
@@ -104,7 +114,7 @@ public class UIManager : MonoBehaviour
             elem.SetText(0, player.name);
             elem.SetText(1, "" + player.coins);
 
-            elem.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() => 
+            elem.GetComponent<Button>().onClick.AddListener(() => 
             {
                 HidePopUp();
                 PlayerSelectDone(player.PlayerID);
@@ -125,21 +135,6 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void ShowDiceRoll(int rollValue)
-    {
-        StartCoroutine(ShowDice(rollValue));
-    }
-
-    IEnumerator ShowDice(int rollValue)
-    {
-        dice.SetActive(true);
-        diceValueText.text = "" + rollValue;
-
-        yield return new WaitForSeconds(2f);
-
-        dice.SetActive(false);
-    }
-
     public void RefreshCoins(int value, int id)
     {
 
@@ -148,8 +143,6 @@ public class UIManager : MonoBehaviour
 
     public void GiveCardToPlayer(int playerID, CardScriptableObject cardSO)
     {
-        Debug.Log("current " + playerID);
-
         CardGameObject card = Instantiate(cardPrefab, gameCanvas);
 
         int rowsIndex = -1;
@@ -292,7 +285,7 @@ public class UIManager : MonoBehaviour
             p1CardsImg[cardImgIndex].sprite = card.values.texture;
             knowValues.Add(card.values);
 
-            UnityEngine.UI.Button btn = p1CardsImg[cardImgIndex].GetComponent<UnityEngine.UI.Button>();
+            Button btn = p1CardsImg[cardImgIndex].GetComponent<Button>();
 
             int i = cardID;
             btn.onClick.AddListener(() => TradeSelectCard(i, 0));
@@ -324,7 +317,7 @@ public class UIManager : MonoBehaviour
             p2CardsImg[cardImgIndex].sprite = card.values.texture;
             knowValues.Add(card.values);
 
-            UnityEngine.UI.Button btn = p2CardsImg[cardImgIndex].GetComponent<UnityEngine.UI.Button>();
+            Button btn = p2CardsImg[cardImgIndex].GetComponent<Button>();
 
             int i = cardID;
             btn.onClick.AddListener(() => TradeSelectCard(i, 1));
@@ -371,8 +364,8 @@ public class UIManager : MonoBehaviour
         LeanTween.cancel(currentPopUp);
         LeanTween.scale(currentPopUp, Vector3.zero, popUpAnimTime).setEaseInOutExpo().setIgnoreTimeScale(true);
 
-        p1CardsImg.ForEach(x => x.GetComponent<UnityEngine.UI.Button>().onClick.RemoveAllListeners());
-        p2CardsImg.ForEach(x => x.GetComponent<UnityEngine.UI.Button>().onClick.RemoveAllListeners());
+        p1CardsImg.ForEach(x => x.GetComponent<Button>().onClick.RemoveAllListeners());
+        p2CardsImg.ForEach(x => x.GetComponent<Button>().onClick.RemoveAllListeners());
     }
 
     public void ChooseSelectPopUp(bool valid)
@@ -407,6 +400,33 @@ public class UIManager : MonoBehaviour
             p1Choice = -1;
             p2Choice = -1;
         }
+    }
+
+    public void ShowTurnChangeSequence(int playerID)
+    {
+        LeanTween.cancel(newTurnObj);
+
+        newTurnObj.transform.localScale = Vector3.zero;
+        newTurnText.text = "TOUR " + (playerID == 0 ? "DU JOUEUR" : "DE L'ORDINATEUR");
+
+        LeanTween.scale(newTurnObj, Vector3.one, 0.35f).setEaseInOutExpo().setOnComplete(() =>
+        {
+            LeanTween.scale(newTurnObj, Vector3.zero, 0.35f).setEaseInOutExpo().setDelay(1f);
+        });
+    }
+
+    public void OpenPilePanel()
+    {
+        if (panelPile.isPileOpen) return;
+
+        panelPile.PileGlide();
+    }
+
+    public void HidePilePanel()
+    {
+        if (!panelPile.isPileOpen) return;
+
+        panelPile.PileGlide();
     }
 
     public void LaunchWinPanel()
@@ -456,5 +476,55 @@ public class UIManager : MonoBehaviour
         CurtainsAction();
         yield return new WaitForSeconds(0.4f);
         SceneManager.LoadScene(0);
+    }
+
+    public void RefreshCardPile(Card card, int left)
+    {
+        if(left <= 0)
+        {
+            int index = Game.instance.GetIndexSO(card.values);
+
+            cardsInPile[index].GetComponent<Button>().interactable = false;
+        }
+    }
+
+    public void InitPile(List<CardScriptableObject> cardsSO)
+    {
+        Game game = Game.instance;
+
+        //modifications Ydris
+        cardsInPile = new List<GameObject>();
+        foreach (Transform child in cardsGrid.transform)
+        {
+            cardsInPile.Add(child.gameObject);
+            child.gameObject.AddComponent<Button>();
+        }
+        //--------------------
+
+
+        int index = 0;
+
+        foreach (CardScriptableObject c in cardsSO)
+        {
+            game.gamePile.AddCard(c, 6);
+            cardsInPile[index].GetComponent<Image>().sprite = c.texture;
+
+            int i = index;
+
+            cardsInPile[index].GetComponent<Button>().onClick.AddListener(() => { game.BuyCard(i); });
+
+            index++;
+        }
+    }
+
+    public void ShowBigCard(Sprite cardSprite)
+    {
+        bigCard.gameObject.SetActive(true);
+        bigCard.sprite = cardSprite;
+    }
+
+    public void HideBigCard()
+    {
+        bigCard.gameObject.SetActive(false);
     }
 }

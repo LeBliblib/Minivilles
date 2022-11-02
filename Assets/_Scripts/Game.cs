@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -44,11 +45,6 @@ public class Game : MonoBehaviour
 
     public static Game instance;
 
-    //Modifications Ydris
-    [Header("Pile de cartes")]
-    [SerializeField] GameObject cardsGrid;
-    List<GameObject> cardsInPile;
-
     private void Awake()
     {
         if (instance == null)
@@ -56,37 +52,15 @@ public class Game : MonoBehaviour
         else
             Destroy(gameObject);
 
-        Player p = new Player("jean " + 0, 0, false);
+        Player p = new Player("Joueur", 0, false);
         players.Add(p);
-        IA ia = new IA("jean" + 1, 1, true);
+        IA ia = new IA("Ordinateur", 1, true);
         players.Add(ia);
     }
 
     IEnumerator Start()
     {
-        //modifications Ydris
-        cardsInPile = new List<GameObject>();
-        foreach (Transform child in cardsGrid.transform)
-        {
-            cardsInPile.Add(child.gameObject);
-            child.gameObject.AddComponent<UnityEngine.UI.Button>();
-        }
-        //--------------------
-
-
-        int index = 0;
-
-        foreach (CardScriptableObject c in cardsSO)
-        {
-            gamePile.AddCard(c, 6);
-            cardsInPile[index].GetComponent<Image>().sprite = c.texture;
-
-            int i = index;
-
-            cardsInPile[index].GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() => { BuyCard(i); });
-
-            index++;
-        }
+        ui.InitPile(cardsSO);
 
         currentTurnPlayerID = 0;
 
@@ -98,18 +72,17 @@ public class Game : MonoBehaviour
             P.AddCard(new Card(P.PlayerID, cardsSO[2]));
             ui.GiveCardToPlayer(P.PlayerID, cardsSO[2]);
         }
-        StartTurn();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        
+        StartCoroutine(StartTurn());
     }
 
     #region Methode
-    public void StartTurn()
+    public IEnumerator StartTurn()
     {
+        ui.ShowTurnChangeSequence(currentTurnPlayerID);
+
+        yield return new WaitForSeconds(1.7f);
+
         dicesNumber = 1;
         onTurnStart?.Invoke(currentTurnPlayerID);
 
@@ -133,8 +106,6 @@ public class Game : MonoBehaviour
         }
 
         turnStartCallbacks = 0;
-
-        yield return new WaitForSeconds(2f); //Dice roll anim time
 
         RollDice(dicesNumber);
     }
@@ -190,34 +161,27 @@ public class Game : MonoBehaviour
             }
         }
 
-        Debug.Log("ergergh " + currentTurnPlayerID);
-        ui.ShowDiceRoll(rollsSum);
-
-        onDiceRoll?.Invoke(rolls, currentTurnPlayerID);
-        Debug.Log("Dice roll");
         int listeners = 0;
 
         if (onDiceRoll?.GetInvocationList() != null) listeners = onDiceRoll.GetInvocationList().Length;
 
-        if (listeners <= 0)
-            CheckForCardsActivation(rollsSum);
-        else
-            diceCoroutine = StartCoroutine(WaitForRollDiceEvent(listeners, rollsSum));
+        diceCoroutine = StartCoroutine(WaitForRollDiceEvent(listeners, rollsSum, rolls));
     }
 
-    IEnumerator WaitForRollDiceEvent(int callbacksNb, int rollsSum)
+    IEnumerator WaitForRollDiceEvent(int callbacksNb, int rollsSum, int[] rolls)
     {
-        Debug.Log("Start wait dice roll" + callbacksNb +"||"+ diceRollCallbacks);
+        yield return new WaitForSeconds(2f);
+        onDiceRoll?.Invoke(rolls, currentTurnPlayerID);
+
         while (diceRollCallbacks < callbacksNb)
         {
             yield return null;
         }
-        Debug.Log("Stop wait dice roll");
+
         diceRollCallbacks = 0;
 
         CheckForCardsActivation(rollsSum);
     }
-
     public void RerollDice()
     {
         if (diceCoroutine != null) StopCoroutine(diceCoroutine);
@@ -238,7 +202,6 @@ public class Game : MonoBehaviour
     }
     public void SetPlayerDone()
     {
-        Debug.Log("Player done");
         playerDoneActivation++;
     }
 
@@ -249,12 +212,14 @@ public class Game : MonoBehaviour
             yield return null;
         }
 
-        //Buy start anim
-        yield return new WaitForSeconds(2f); //Buy start anim time
+        yield return new WaitForSeconds(0.15f);
 
-        Debug.Log("Can buy : " + playerDoneActivation + " " + players.Count);
+        if (!players[currentTurnPlayerID].isIA) ui.OpenPilePanel();
+
         playerDoneActivation = 0;
+
         canBuy = true;
+    
         onBuyStart?.Invoke(currentTurnPlayerID);
     }
 
@@ -276,23 +241,21 @@ public class Game : MonoBehaviour
 
         player.ChangeCoins(-card.values.Cost);
 
-        Debug.Log("current " + currentTurnPlayerID);
         ui.GiveCardToPlayer(currentTurnPlayerID, pile.cardSO);
 
         //pile.nb--;
         canBuy = false;
         onCardBuy?.Invoke(card, pile.nb);
 
-        Debug.Log("Achat : " + card.values.Name + " Money money : " + player.coins + " Player : " + currentTurnPlayerID);
-        EndTurn();
+        StartCoroutine(EndTurn());
     }
 
     public void BuyMonument(int monumentID)
     {
         if (!canBuy) return;
-        Debug.Log("currentplayer" + currentTurnPlayerID);
+
         Player player = players[currentTurnPlayerID];
-        Debug.Log("currentmonument" + monumentID);
+
         Monument monument = player.monuments[monumentID];
 
         if (monument.isActive) return;
@@ -301,7 +264,6 @@ public class Game : MonoBehaviour
         player.ChangeCoins(-monument.Cost);
         monument.Buy();
 
-        Debug.Log("monplayerIP"+monument.player.PlayerID);
         ui.BuyMonument(currentTurnPlayerID, monumentID);
 
         canBuy = false;
@@ -320,7 +282,7 @@ public class Game : MonoBehaviour
                 ui.LaunchWinPanel();
         }
         else
-            EndTurn();
+            StartCoroutine(EndTurn());
     }
 
     public void DontBuy()
@@ -329,17 +291,21 @@ public class Game : MonoBehaviour
 
         canBuy = false;
 
-        EndTurn();
+        StartCoroutine(EndTurn());
     }
 
-    public void EndTurn()
+    public IEnumerator EndTurn()
     {
-        onTurnEnd?.Invoke(currentTurnPlayerID);
+        if(!players[currentTurnPlayerID].isIA) ui.HidePilePanel();
+
+        yield return new WaitForSeconds(0.5f);
 
         currentTurnPlayerID++;
         if (currentTurnPlayerID >= players.Count) currentTurnPlayerID = 0;
 
-        StartTurn();
+        onTurnEnd?.Invoke(currentTurnPlayerID);
+
+        StartCoroutine(StartTurn());
     }
 
     public Player GetPlayer(int index)

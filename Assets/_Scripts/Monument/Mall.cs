@@ -44,12 +44,10 @@ public class Mall : Monument
             case (CardEventType.CoinsFromBank):
                 CoinsFromBankEvent ev = card.cardEvent as CoinsFromBankEvent;
                 ev.coinsNumber++;
-                Debug.Log("Event CFB : " + ev.coinsNumber);
                 break;
             case (CardEventType.CoinsFromOther):
                 CoinsFromOtherEvent ev2 = card.cardEvent as CoinsFromOtherEvent;
                 ev2.coinsNumber++;
-                Debug.Log("Event CFO : " + ev2.coinsNumber);
                 break;
         }
     }

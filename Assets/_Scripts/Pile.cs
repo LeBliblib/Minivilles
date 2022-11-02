@@ -20,7 +20,6 @@ public class Pile
 
     public PileCards GetCard(int index)
     {
-        Debug.Log(index);
         return cards[index];
     }
 

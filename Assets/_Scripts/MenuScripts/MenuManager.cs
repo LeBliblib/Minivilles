@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEngine.EventSystems;
 using UnityEngine.Events;
-using UnityEditor.UIElements;
 
 public class MenuManager : MonoBehaviour
 {
@@ -35,8 +33,7 @@ public class MenuManager : MonoBehaviour
 
 
     //==================================================================================================
-
-    
+   
     void Start()
     {
         timer = 0;
@@ -47,22 +44,16 @@ public class MenuManager : MonoBehaviour
         panel1.transform.localScale = new Vector2(0, 0);
         panel2.transform.localScale = new Vector2(0, 0);
 
-        curtains[0].transform.position = new Vector2(Screen.width / 2, Screen.height);
-        curtains[0].rectTransform.sizeDelta = new Vector2(Screen.width, Screen.height / 2);
-        curtains[1].transform.position = new Vector2(Screen.width / 2, 0);
-        curtains[1].rectTransform.sizeDelta = new Vector2(Screen.width, Screen.height / 2);
+        curtains[0].rectTransform.localScale = Vector3.one;
+        curtains[1].rectTransform.localScale = Vector3.one;
 
         areCurtainsOpened = false;
-
     }
-
 
     //==================================================================================================
 
-
     void Update()
     {
-
         if (step != 4 && step != 6) { timer += Time.deltaTime; }
 
         if ( timer >= 0.5f && step == 0)
@@ -122,10 +113,8 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-
     //==================================================================================================
-
-    
+   
     public void CurtainsAction()
     {
         if (!areCurtainsOpened)

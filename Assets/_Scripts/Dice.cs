@@ -48,7 +48,7 @@ public class Dice : MonoBehaviour
         rend.sprite = diceSides[randomDiceSide];
 
         finalSide = randomDiceSide + 1;
-        Debug.Log(finalSide);
+
         return finalSide;
     }
 

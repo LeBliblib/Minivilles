@@ -23,7 +23,6 @@ public class Park : Monument
             Game.instance.SetCallback(CallbackTypes.DiceRoll);
             return;
         }
-        Debug.Log("Dice roll Park");
         int lastRoll = 0;
 
         for (int i = 0; i < rolls.Length; i++)
@@ -32,7 +31,6 @@ public class Park : Monument
             {
                 activeForNextTurn = true;
                 Game.instance.SetCallback(CallbackTypes.DiceRoll);
-                Debug.Log("Test Park");
                 return;
             }
 
@@ -43,10 +41,8 @@ public class Park : Monument
 
     public void SetTurn(int id)
     {
-        Debug.Log("End Turn Park");
         if (activeForNextTurn)
         {
-            Debug.Log("efer");
             Game.instance.SetCurrentPlayerID(player.PlayerID);
             activeForNextTurn = false;
         }
