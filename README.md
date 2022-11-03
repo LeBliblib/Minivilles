@@ -34,4 +34,4 @@ Les effets de gains de pièces sont assez simples (ajouter ou retirer des pièce
 pour les joueurs humains, il repose sur un système de popups qui permettent de sélectionner les différents paramètres de l'échange.
 
 Voici l'UML de notre projet :
-![UML-Miniville](/UML Miniville.png)
+![UML-Miniville](/UMLMiniville.png)
