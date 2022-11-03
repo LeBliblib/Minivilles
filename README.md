@@ -33,5 +33,6 @@ Ainsi, nous avons juste à configurer les ScriptableObjects des cartes comme nou
 Les effets de gains de pièces sont assez simples (ajouter ou retirer des pièces). Mais l'effet d'échange quant à lui est plus compliqué : 
 pour les joueurs humains, il repose sur un système de popups qui permettent de sélectionner les différents paramètres de l'échange.
 
-Voici l'UML de notre projet :
+# UML de notre projet :
+
 ![UML-Miniville](/UMLMiniville.png)
