@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Dice : MonoBehaviour
 {
+    [SerializeField] AudioSource source;
+    [SerializeField] AudioClip[] clips;
+
     private bool move = false;
 
     public int finalSide;
@@ -56,7 +59,10 @@ public class Dice : MonoBehaviour
     {
         transform.localScale = startDiceScale;
         LeanTween.scale(gameObject, endDiceScale, 1.1f).setEase(LeanTweenType.easeOutBounce); // permet de faire un effet de rebond lors du lancé du dé
+        source.PlayOneShot(clips[Random.Range(0, clips.Length)]);
+
         move = true;
+
         animator.SetActive(true);
         diceEnd.SetActive(false);
 

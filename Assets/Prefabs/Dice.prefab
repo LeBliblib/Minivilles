@@ -46,6 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 833a0efb4eba19c458e191ddf75053d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  source: {fileID: 0}
+  clips:
+  - {fileID: 8300000, guid: a81f6f1d0c1a7e14bac7ecc474bee0d2, type: 3}
   finalSide: 0
   diceSides:
   - {fileID: 1078385965, guid: d90d9c0ca8a1066498e8a0f0a2aa09c7, type: 3}
@@ -56,6 +59,7 @@ MonoBehaviour:
   - {fileID: -1078068912, guid: d90d9c0ca8a1066498e8a0f0a2aa09c7, type: 3}
   diceEnd: {fileID: 4967633392246590127}
   animator: {fileID: 4967633393382084611}
+  startPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &4967633392246590127
 GameObject:
   m_ObjectHideFlags: 0

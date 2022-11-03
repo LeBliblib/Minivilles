@@ -27,14 +27,12 @@ public class Player
         monuments.Add(new Mall("Centre commercial", "Vos établissements de type Restaurant et Food rapportent une pièce de plus.", 10, this));
         monuments.Add(new Park("Parc d'attractions", "Si votre jet de dès est un double, rejouez un tour après celui-ci.", 16, this));
         monuments.Add(new Radio("Tour radio", "Une fois par tour, vous pouvez choisir de relancer vos dès.", 22,this));
-
-
     }
 
     public void ChangeCoins(int value)
     {
         coins += value;
-        Game.instance.ui.RefreshCoins(coins, PlayerID);
+        Game.instance.ui.RefreshCoins(coins, PlayerID, coins - value);
     }
 
     public void AddCard(Card cardToAdd)

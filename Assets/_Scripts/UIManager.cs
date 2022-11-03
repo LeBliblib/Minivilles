@@ -66,6 +66,17 @@ public class UIManager : MonoBehaviour
     float timer;
     sbyte step;
 
+    [Header("Audio")]
+    [SerializeField] AudioSource cardsSource;
+    [SerializeField] AudioClip buyClip, swipeClip;
+
+    [SerializeField] AudioSource coinsSource;
+    [SerializeField] AudioClip getCoinsClip;
+
+    [SerializeField] AudioSource themeSource;
+    [SerializeField] AudioSource jingleSource;
+    [SerializeField] AudioClip winJingle, loseJingle, winTheme, loseTheme;
+
     int p1Choice = -1;
     int p2Choice = -1;
 
@@ -135,14 +146,18 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void RefreshCoins(int value, int id)
+    public void RefreshCoins(int value, int id, int lastValue = 0)
     {
-
         coinsText[id].text = "" + value;
+
+        if(value - lastValue > 0)
+            coinsSource.PlayOneShot(getCoinsClip);
     }
 
     public void GiveCardToPlayer(int playerID, CardScriptableObject cardSO)
     {
+        cardsSource.PlayOneShot(buyClip);
+
         CardGameObject card = Instantiate(cardPrefab, gameCanvas);
 
         int rowsIndex = -1;
@@ -168,6 +183,7 @@ public class UIManager : MonoBehaviour
             parent = playerID == 0 ? player1Rows[i] : player2Rows[i];
 
         card.Init(cardSO, parent);
+        cardsSource.PlayOneShot(swipeClip);
 
         players[playerID].AddCard(card);
     }
@@ -222,6 +238,7 @@ public class UIManager : MonoBehaviour
 
     public void BuyMonument(int playerID, int monumentID)
     {
+        cardsSource.PlayOneShot(buyClip);
         CardGameObject monumentObject = players[playerID].GetMonument(monumentID);
 
         monumentObject.ChangeSprite(monumentSprites[monumentID]);
@@ -431,6 +448,10 @@ public class UIManager : MonoBehaviour
 
     public void LaunchWinPanel()
     {
+        themeSource.Stop();
+        themeSource.PlayOneShot(winTheme);
+        jingleSource.PlayOneShot(winJingle);
+
         fireworksManager.SetActive(true);
         winPopup.transform.GetChild(0).gameObject.SetActive(true);
         LeanTween.scale(winPopup.transform.GetChild(1).gameObject, new Vector2(5, 5), 1.5f).setEase(LeanTweenType.easeOutElastic);
@@ -439,6 +460,10 @@ public class UIManager : MonoBehaviour
 
     public void LaunchLoosePanel()
     {
+        themeSource.Stop();
+        themeSource.PlayOneShot(loseTheme);
+        jingleSource.PlayOneShot(loseJingle);
+
         losePopup.transform.GetChild(0).gameObject.SetActive(true);
         LeanTween.scale(losePopup.transform.GetChild(1).gameObject, new Vector2(5,5), 1.5f).setEase(LeanTweenType.easeOutElastic);
         StartCoroutine(RetryButtonPop());
