@@ -18,7 +18,7 @@ Améliorations :
 - Feux d’artifices codé
 - Animation des dés en 2D
 
-Gestion dans le code de l’effet des cartes (bleue/verte/rouge/violette) :
+# Gestion dans le code de l’effet des cartes :
 Toutes les valeurs des cartes (nom, couleur, prix, etc...) sont stockées dans des ScriptableObjects.
 Une classe "Card" va permettre de faire fonctionner les cartes. Lorsque l'on veut donner une carte à un joueur on créé une nouvelle instance de cette classe en lui donnant une référence au ScriptableObject voulu.
 La carte va alors s'initialiser avec les paramêtres du ScriptableObject.
